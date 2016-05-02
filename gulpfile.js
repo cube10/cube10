@@ -7,7 +7,7 @@ let webpack = require('gulp-webpack');
 let del = require('del');
 // let sass = require('gulp-sass');
 
-let paths = ['*.js', 'models/*.js', 'routes/*.js', 'tests/*.js', 'dev/**/*.js'];
+let paths = ['*.js', 'models/*.js', 'routes/*.js', 'tests/*.js', 'dev/**/*.html', 'dev/**/*.js'];
 
 gulp.task('del-build', () => {
   return del([
@@ -56,9 +56,9 @@ gulp.task('webpack', () => {
 //   gulp.watch(__dirname + '/dev/style/*.scss', ['sass']);
 // });
 
-// gulp.task('watch', () =>{
-//   gulp.watch(paths);
-// });
+gulp.task('watch', () =>{
+  gulp.watch(paths);
+});
 
 // gulp.task('bundle:test', () => {
 //   return gulp.src(__dirname + '/tests/karma-testing.js')
