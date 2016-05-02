@@ -5,7 +5,7 @@ function addStory(storyObj) {
   let newStory = new Story(storyObj)
   newStory.save()
     .then((archive) => {
-      console.log(archive.title)
+      // console.log(archive.title)
     })
 }
 

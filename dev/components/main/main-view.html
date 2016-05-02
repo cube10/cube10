@@ -1,0 +1,31 @@
+<section ng-init="mainctrl.getStories()" ng-controller="MainController as mainctrl">
+  <section class="cube-holder" ng-repeat="story in mainctrl.stories" >
+    <input type="radio" checked id="radio-front" name="select-face"/>
+    <input type="radio" id="radio-left" name="select-face"/>
+    <input type="radio" id="radio-right" name="select-face"/>
+    <input type="radio" id="radio-top" name="select-face"/>
+    <input type="radio" id="radio-bottom" name="select-face"/>
+    <input type="radio" id="radio-back" name="select-face"/>
+
+    <div class="separator"></div>
+
+    <div class="space3d">
+
+
+      <div class="_3dbox">
+        <div class="_3dface _3dface--front">
+          {{story.title}}
+        </div>
+        <div class="_3dface _3dface--top">{{story.author}}</div>
+        <div class="_3dface _3dface--bottom">hello</div>
+        <div class="_3dface _3dface--left"></div>
+        <div class="_3dface _3dface--right"></div>
+        <div class="_3dface _3dface--back"></div>
+      </div>
+
+    </div>
+
+    <div class="separator"></div>
+    <br><br>
+  </section>
+</section>

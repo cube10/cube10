@@ -1,15 +1,19 @@
-(function() {
-  angular.module('MainModule')
+// function() {
+  angular.module('MainModule', [])
     .controller('MainController', ['$http', MainController])
     .directive('cubeRender', function() {
       return {
-        restrict: 'EA',
-        templateUrl: './main-template.html'
+        restrict: 'E',
+        templateUrl: './main-view.html'
       };
     });
 
+  /////////////////////////////
+  // defines controller
+  ////////////////////////////
+
     function MainController ($http) {
-      const storyRoute = 'https://localhost:3000/stories';
+      const storyRoute = 'http://localhost:3000/stories';
       this.stories = [];
 
       this.getStories = function() {
@@ -21,6 +25,8 @@
             console.log('error blah');
           });
       };
-    }
+      this.rotateCube = function() {
 
-})();
+      }
+    }
+// }
