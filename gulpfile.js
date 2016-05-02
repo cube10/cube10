@@ -21,7 +21,8 @@ gulp.task('copy-html', () => {
   gulp.src([__dirname +
     '/dev/index.html',
     // './dev/components/footer/footer-view.html',
-    // './dev/components/header/header-view.html',
+    
+    './dev/components/header/header-view.html',
     // './dev/components/home/home-view.html',
     './dev/components/main/main-view.html'
     // './dev/components/nav/nav-view.html',

@@ -1,5 +1,5 @@
 'use strict'
-module.exports = (cb) => {
+module.exports = (addStory) => {
   let stories = [
     {
       title: 'Democracy and Bacon',
@@ -69,6 +69,6 @@ module.exports = (cb) => {
   ]
 
   stories.forEach((story) => {
-     cb(story)
+     addStory(story)
   })
 }
