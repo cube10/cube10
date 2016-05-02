@@ -1,11 +1,11 @@
 'use strict';
 
 let gulp = require('gulp');
-let lint = require('gulp-eslint');
-let mocha = require('gulp-mocha');
+// let lint = require('gulp-eslint');
+// let mocha = require('gulp-mocha');
 let webpack = require('gulp-webpack');
 let del = require('del');
-let sass = require('gulp-sass');
+// let sass = require('gulp-sass');
 
 let paths = ['*.js', 'models/*.js', 'routes/*.js', 'tests/*.js', 'dev/**/*.js'];
 
@@ -20,12 +20,12 @@ gulp.task('del-build', () => {
 gulp.task('copy-html', () => {
   gulp.src([__dirname +
     '/dev/index.html',
-    './dev/components/footer/footer-view.html',
-    './dev/components/header/header-view.html',
-    './dev/components/home/home-view.html',
-    './dev/components/main/main-view.html',
-    './dev/components/nav/nav-view.html',
-    './dev/components/user/user-view.html'
+    // './dev/components/footer/footer-view.html',
+    // './dev/components/header/header-view.html',
+    // './dev/components/home/home-view.html',
+    './dev/components/main/main-view.html'
+    // './dev/components/nav/nav-view.html',
+    // './dev/components/user/user-view.html'
 ])
   .pipe(gulp.dest(__dirname + '/dev/build'));
 });
@@ -34,11 +34,11 @@ gulp.task('webpack', () => {
   return gulp.src(__dirname + '/dev/entry.js')
   .pipe(webpack({
     watch: true,
-    module: {
-      loaders: [
-        { test: /\.css$/, loader: 'style!css'}
-      ]
-    },
+    // module: {
+    //   loaders: [
+    //     { test: /\.css$/, loader: 'style!css'}
+    //   ]
+    // },
     output: {
       filename: 'bundle.js'
     }
@@ -56,9 +56,9 @@ gulp.task('webpack', () => {
 //   gulp.watch(__dirname + '/dev/style/*.scss', ['sass']);
 // });
 
-gulp.task('watch', () =>{
-  gulp.watch(paths);
-});
+// gulp.task('watch', () =>{
+//   gulp.watch(paths);
+// });
 
 // gulp.task('bundle:test', () => {
 //   return gulp.src(__dirname + '/tests/karma-testing.js')
@@ -68,11 +68,11 @@ gulp.task('watch', () =>{
 //   .pipe(gulp.dest('./test'));
 // });
 
-gulp.task('eslint', () => {
-  gulp.src(paths)
-  .pipe(lint())
-  .pipe(lint.format());
-});
+// gulp.task('eslint', () => {
+//   gulp.src(paths)
+//   .pipe(lint())
+//   .pipe(lint.format());
+// });
 
 // The gulp 'default' with all tasks, excluding some during development process
 // gulp.task('default', ['eslint', 'del-build', 'webpack', 'bundle:test', 'copy-html', 'sass']);
