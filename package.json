@@ -1,0 +1,28 @@
+{
+  "name": "cube10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cube10/cube10.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cube10/cube10/issues"
+  },
+  "homepage": "https://github.com/cube10/cube10#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.6",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^6.2.0",
+    "mongoose": "^4.4.14"
+  }
+}
