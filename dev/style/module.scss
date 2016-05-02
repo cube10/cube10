@@ -2,6 +2,22 @@
 // Cube module
 ///////////////////////////////
 
+  /////////////////////
+  // variables
+  /////////////////////
+  $cube-width: 150px;
+  $cube-height: 150px;
+  $cube-half-width: 75px;
+
+  /////////////////////
+  // mixins
+  /////////////////////
+  @mixin cube-dimensions($cube-width, $cube-height) {
+    width: $cube-width;
+    height: $cube-height;
+  }
+
+
 body {
   color: #333;
   padding: 20px;
@@ -26,9 +42,8 @@ body {
 
 /* 3D Cube */
 .space3d {
+  @include cube-dimensions($cube-width, $cube-height);
   perspective: 1000px;
-  width: 150px;
-  height: 150px;
   text-align: center;
   display: inline-block;
 }
@@ -51,7 +66,7 @@ body {
   background: #FFF;
   box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
   color: #333;
-  /*line-height: 150px;*/
+  /*line-height: $cube-height;*/
   word-wrap: normal;
   overflow: hidden;
   /*line height causes issues*/
@@ -59,9 +74,8 @@ body {
 }
 
 ._3dface--front {
-  width: 150px;
-  height: 150px;
-  transform: translate3d(0, 0, 75px);
+  @include cube-dimensions($cube-width, $cube-height);
+  transform: translate3d(0, 0, $cube-half-width);
   white-space: pre-line;
   display: flex;
   flex-wrap: wrap;
@@ -70,37 +84,32 @@ body {
 }
 
 ._3dface--top {
-  width: 150px;
-  height: 150px;
-  transform: rotateX(90deg) translate3d(0, 0, 75px);
+  @include cube-dimensions($cube-width, $cube-height);
+  transform: rotateX(90deg) translate3d(0, 0, $cube-half-width);
 }
 
 ._3dface--bottom {
-  width: 150px;
-  height: 150px;
-  transform: rotateX(-90deg) translate3d(0, 0, 75px);
+  @include cube-dimensions($cube-width, $cube-height);
+  transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
 }
 
 ._3dface--left {
-  width: 150px;
-  height: 150px;
+  @include cube-dimensions($cube-width, $cube-height);
   left: 50%;
-  margin-left: -75px;
-  transform: rotateY(-90deg) translate3d(0, 0, 75px);
+  margin-left: -$cube-half-width;
+  transform: rotateY(-90deg) translate3d(0, 0, $cube-half-width);
 }
 
 ._3dface--right {
-  width: 150px;
-  height: 150px;
+  @include cube-dimensions($cube-width, $cube-height);
   left: 50%;
-  margin-left: -75px;
-  transform: rotateY(90deg) translate3d(0, 0, 75px);
+  margin-left: -$cube-half-width;
+  transform: rotateY(90deg) translate3d(0, 0, $cube-half-width);
 }
 
 ._3dface--back {
-  width: 150px;
-  height: 150px;
-  transform: rotateY(180deg) translate3d(0, 0, 75px);
+  @include cube-dimensions($cube-width, $cube-height);
+  transform: rotateY(180deg) translate3d(0, 0, $cube-half-width);
 }
 
 #radio-left:checked ~ .space3d ._3dbox {
