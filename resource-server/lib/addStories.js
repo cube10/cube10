@@ -11,6 +11,7 @@ function addStory(storyObj) {
 
 function activateScrapers() {
   console.log('gonna add new stories')
+  require('./scrapers/reddit.js')(addStory)
   require('./scrapers/mock.js')(addStory)
 }
 
