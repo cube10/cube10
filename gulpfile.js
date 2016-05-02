@@ -5,7 +5,7 @@ let gulp = require('gulp');
 // let mocha = require('gulp-mocha');
 let webpack = require('gulp-webpack');
 let del = require('del');
-// let sass = require('gulp-sass');
+let sass = require('gulp-sass');
 
 let paths = ['*.js', 'models/*.js', 'routes/*.js', 'tests/*.js', 'dev/**/*.html', 'dev/**/*.js'];
 
@@ -21,7 +21,7 @@ gulp.task('copy-html', () => {
   gulp.src([__dirname +
     '/dev/index.html',
     // './dev/components/footer/footer-view.html',
-    
+
     './dev/components/header/header-view.html',
     // './dev/components/home/home-view.html',
     './dev/components/main/main-view.html'
@@ -47,11 +47,11 @@ gulp.task('webpack', () => {
   .pipe(gulp.dest(__dirname + '/dev/build/'));
 });
 
-// gulp.task('sass', function() {
-//   return gulp.src(__dirname + '/dev/style/*.scss')
-//     .pipe(sass().on('error', sass.logError))
-//     .pipe(gulp.dest(__dirname + '/dev/build'));
-// });
+gulp.task('sass', function() {
+  return gulp.src(__dirname + '/dev/style/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(__dirname + '/dev/build/css'));
+});
 
 // gulp.task('sass:watch', function() {
 //   gulp.watch(__dirname + '/dev/style/*.scss', ['sass']);
@@ -77,4 +77,4 @@ gulp.task('watch', () =>{
 
 // The gulp 'default' with all tasks, excluding some during development process
 // gulp.task('default', ['eslint', 'del-build', 'webpack', 'bundle:test', 'copy-html', 'sass']);
-gulp.task('default', ['del-build', 'webpack', 'copy-html']);
+gulp.task('default', ['del-build', 'webpack', 'copy-html', 'sass']);
