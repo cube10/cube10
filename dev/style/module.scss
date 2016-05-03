@@ -5,18 +5,50 @@
   /////////////////////
   // variables
   /////////////////////
-  $cube-width: 150px;
-  $cube-height: 150px;
-  $cube-half-width: 75px;
+
+    //full width dimensions
+  $cube-width:              150px;
+  $cube-height:             150px;
+  $cube-half-width:         75px;
+
+    //middle breakpoint widht dimensions
+  $rs-md-cube-width:        100px;
+  $rs-md-cube-height:       100px;
+  $rs-md-cube-half-width:   50px;
+
+    //smallest breakpoint width dimensions
+  $rs-sm-cube-width:        100px;
+  $rs-sm-cube-height:       100px;
+  $rs-sm-cube-half-width:   50px;
+
 
   /////////////////////
   // mixins
   /////////////////////
+
   @mixin cube-dimensions($cube-width, $cube-height) {
     width: $cube-width;
     height: $cube-height;
   }
 
+  @mixin space3d-default {
+    perspective: 1000px;
+    text-align: center;
+    display: inline-block;
+  }
+
+  @mixin _3dbox-default {
+    display: inline-block;
+    transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+/////////////////////
+// STYLES
+/////////////////////
 
 body {
   color: #333;
@@ -43,26 +75,74 @@ body {
 /* 3D Cube */
 .space3d {
   @include cube-dimensions($cube-width, $cube-height);
-  perspective: 1000px;
-  text-align: center;
-  display: inline-block;
+  @include space3d-default;
 }
 
+.space3d-t {
+  @extend .space3d;
+  transform: rotateX(-90deg);
+}
+
+.space3d-bo {
+  @extend .space3d;
+  transform: rotateX(90deg);
+}
+
+.space3d-l {
+  @extend .space3d;
+  transform: rotateY(90deg);
+}
+
+.space3d-r {
+  @extend .space3d;
+  transform: rotateY(-90deg);
+}
+
+.space3d-ba {
+  @extend .space3d;
+  transform: rotateY(180deg);
+}
+
+
 ._3dbox {
-  display: inline-block;
-  transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  text-align: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
+  @include _3dbox-default;
   transform-style: preserve-3d;
   transform: rotateX(-15deg) rotateY(15deg);
 }
 
+._3dbox-t {
+  @extend ._3dbox;
+  transform: rotateX(-90deg);
+}
+
+._3dbox-bo {
+  @extend ._3dbox;
+  transform: rotateX(90deg);
+}
+
+._3dbox-l {
+  @extend ._3dbox;
+  transform: rotateY(90deg);
+}
+
+._3dbox-r {
+  @extend ._3dbox;
+  transform: rotateY(-90deg);
+}
+
+._3dbox-ba {
+  @extend ._3dbox;
+  transform: rotateY(180deg);
+}
+
+  ///////////////////////
+  // cube faces
+  ///////////////////////
+
 ._3dface {
   overflow: hidden;
   position: absolute;
-  border: 1px solid #888;
+  border: 3px solid orange;
   background: #FFF;
   box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
   color: #333;
