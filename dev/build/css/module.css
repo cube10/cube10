@@ -16,14 +16,29 @@ body {
   margin-top: 20px; }
 
 /* 3D Cube */
-.space3d {
+.space3d, .space3d-t, .space3d-bo, .space3d-l, .space3d-r, .space3d-ba {
   width: 150px;
   height: 150px;
   perspective: 1000px;
   text-align: center;
   display: inline-block; }
 
-._3dbox {
+.space3d-t {
+  transform: rotateX(-90deg); }
+
+.space3d-bo {
+  transform: rotateX(90deg); }
+
+.space3d-l {
+  transform: rotateY(90deg); }
+
+.space3d-r {
+  transform: rotateY(-90deg); }
+
+.space3d-ba {
+  transform: rotateY(180deg); }
+
+._3dbox, ._3dbox-t, ._3dbox-bo, ._3dbox-l, ._3dbox-r, ._3dbox-ba {
   display: inline-block;
   transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-align: center;
@@ -32,6 +47,21 @@ body {
   height: 100%;
   transform-style: preserve-3d;
   transform: rotateX(-15deg) rotateY(15deg); }
+
+._3dbox-t {
+  transform: rotateX(-90deg); }
+
+._3dbox-bo {
+  transform: rotateX(90deg); }
+
+._3dbox-l {
+  transform: rotateY(90deg); }
+
+._3dbox-r {
+  transform: rotateY(-90deg); }
+
+._3dbox-ba {
+  transform: rotateY(180deg); }
 
 ._3dface {
   overflow: hidden;
@@ -83,19 +113,19 @@ body {
   height: 150px;
   transform: rotateY(180deg) translate3d(0, 0, 75px); }
 
-#radio-left:checked ~ .space3d ._3dbox {
+#radio-left:checked ~ .space3d ._3dbox, #radio-left:checked ~ .space3d-t ._3dbox, #radio-left:checked ~ .space3d-bo ._3dbox, #radio-left:checked ~ .space3d-l ._3dbox, #radio-left:checked ~ .space3d-r ._3dbox, #radio-left:checked ~ .space3d-ba ._3dbox, #radio-left:checked ~ .space3d ._3dbox-t, #radio-left:checked ~ .space3d-t ._3dbox-t, #radio-left:checked ~ .space3d-bo ._3dbox-t, #radio-left:checked ~ .space3d-l ._3dbox-t, #radio-left:checked ~ .space3d-r ._3dbox-t, #radio-left:checked ~ .space3d-ba ._3dbox-t, #radio-left:checked ~ .space3d ._3dbox-bo, #radio-left:checked ~ .space3d-t ._3dbox-bo, #radio-left:checked ~ .space3d-bo ._3dbox-bo, #radio-left:checked ~ .space3d-l ._3dbox-bo, #radio-left:checked ~ .space3d-r ._3dbox-bo, #radio-left:checked ~ .space3d-ba ._3dbox-bo, #radio-left:checked ~ .space3d ._3dbox-l, #radio-left:checked ~ .space3d-t ._3dbox-l, #radio-left:checked ~ .space3d-bo ._3dbox-l, #radio-left:checked ~ .space3d-l ._3dbox-l, #radio-left:checked ~ .space3d-r ._3dbox-l, #radio-left:checked ~ .space3d-ba ._3dbox-l, #radio-left:checked ~ .space3d ._3dbox-r, #radio-left:checked ~ .space3d-t ._3dbox-r, #radio-left:checked ~ .space3d-bo ._3dbox-r, #radio-left:checked ~ .space3d-l ._3dbox-r, #radio-left:checked ~ .space3d-r ._3dbox-r, #radio-left:checked ~ .space3d-ba ._3dbox-r, #radio-left:checked ~ .space3d ._3dbox-ba, #radio-left:checked ~ .space3d-t ._3dbox-ba, #radio-left:checked ~ .space3d-bo ._3dbox-ba, #radio-left:checked ~ .space3d-l ._3dbox-ba, #radio-left:checked ~ .space3d-r ._3dbox-ba, #radio-left:checked ~ .space3d-ba ._3dbox-ba {
   transform: rotateY(90deg); }
 
-#radio-right:checked ~ .space3d ._3dbox {
+#radio-right:checked ~ .space3d ._3dbox, #radio-right:checked ~ .space3d-t ._3dbox, #radio-right:checked ~ .space3d-bo ._3dbox, #radio-right:checked ~ .space3d-l ._3dbox, #radio-right:checked ~ .space3d-r ._3dbox, #radio-right:checked ~ .space3d-ba ._3dbox, #radio-right:checked ~ .space3d ._3dbox-t, #radio-right:checked ~ .space3d-t ._3dbox-t, #radio-right:checked ~ .space3d-bo ._3dbox-t, #radio-right:checked ~ .space3d-l ._3dbox-t, #radio-right:checked ~ .space3d-r ._3dbox-t, #radio-right:checked ~ .space3d-ba ._3dbox-t, #radio-right:checked ~ .space3d ._3dbox-bo, #radio-right:checked ~ .space3d-t ._3dbox-bo, #radio-right:checked ~ .space3d-bo ._3dbox-bo, #radio-right:checked ~ .space3d-l ._3dbox-bo, #radio-right:checked ~ .space3d-r ._3dbox-bo, #radio-right:checked ~ .space3d-ba ._3dbox-bo, #radio-right:checked ~ .space3d ._3dbox-l, #radio-right:checked ~ .space3d-t ._3dbox-l, #radio-right:checked ~ .space3d-bo ._3dbox-l, #radio-right:checked ~ .space3d-l ._3dbox-l, #radio-right:checked ~ .space3d-r ._3dbox-l, #radio-right:checked ~ .space3d-ba ._3dbox-l, #radio-right:checked ~ .space3d ._3dbox-r, #radio-right:checked ~ .space3d-t ._3dbox-r, #radio-right:checked ~ .space3d-bo ._3dbox-r, #radio-right:checked ~ .space3d-l ._3dbox-r, #radio-right:checked ~ .space3d-r ._3dbox-r, #radio-right:checked ~ .space3d-ba ._3dbox-r, #radio-right:checked ~ .space3d ._3dbox-ba, #radio-right:checked ~ .space3d-t ._3dbox-ba, #radio-right:checked ~ .space3d-bo ._3dbox-ba, #radio-right:checked ~ .space3d-l ._3dbox-ba, #radio-right:checked ~ .space3d-r ._3dbox-ba, #radio-right:checked ~ .space3d-ba ._3dbox-ba {
   transform: rotateY(-90deg); }
 
-#radio-bottom:checked ~ .space3d ._3dbox {
+#radio-bottom:checked ~ .space3d ._3dbox, #radio-bottom:checked ~ .space3d-t ._3dbox, #radio-bottom:checked ~ .space3d-bo ._3dbox, #radio-bottom:checked ~ .space3d-l ._3dbox, #radio-bottom:checked ~ .space3d-r ._3dbox, #radio-bottom:checked ~ .space3d-ba ._3dbox, #radio-bottom:checked ~ .space3d ._3dbox-t, #radio-bottom:checked ~ .space3d-t ._3dbox-t, #radio-bottom:checked ~ .space3d-bo ._3dbox-t, #radio-bottom:checked ~ .space3d-l ._3dbox-t, #radio-bottom:checked ~ .space3d-r ._3dbox-t, #radio-bottom:checked ~ .space3d-ba ._3dbox-t, #radio-bottom:checked ~ .space3d ._3dbox-bo, #radio-bottom:checked ~ .space3d-t ._3dbox-bo, #radio-bottom:checked ~ .space3d-bo ._3dbox-bo, #radio-bottom:checked ~ .space3d-l ._3dbox-bo, #radio-bottom:checked ~ .space3d-r ._3dbox-bo, #radio-bottom:checked ~ .space3d-ba ._3dbox-bo, #radio-bottom:checked ~ .space3d ._3dbox-l, #radio-bottom:checked ~ .space3d-t ._3dbox-l, #radio-bottom:checked ~ .space3d-bo ._3dbox-l, #radio-bottom:checked ~ .space3d-l ._3dbox-l, #radio-bottom:checked ~ .space3d-r ._3dbox-l, #radio-bottom:checked ~ .space3d-ba ._3dbox-l, #radio-bottom:checked ~ .space3d ._3dbox-r, #radio-bottom:checked ~ .space3d-t ._3dbox-r, #radio-bottom:checked ~ .space3d-bo ._3dbox-r, #radio-bottom:checked ~ .space3d-l ._3dbox-r, #radio-bottom:checked ~ .space3d-r ._3dbox-r, #radio-bottom:checked ~ .space3d-ba ._3dbox-r, #radio-bottom:checked ~ .space3d ._3dbox-ba, #radio-bottom:checked ~ .space3d-t ._3dbox-ba, #radio-bottom:checked ~ .space3d-bo ._3dbox-ba, #radio-bottom:checked ~ .space3d-l ._3dbox-ba, #radio-bottom:checked ~ .space3d-r ._3dbox-ba, #radio-bottom:checked ~ .space3d-ba ._3dbox-ba {
   transform: rotateX(90deg); }
 
-#radio-top:checked ~ .space3d ._3dbox {
+#radio-top:checked ~ .space3d ._3dbox, #radio-top:checked ~ .space3d-t ._3dbox, #radio-top:checked ~ .space3d-bo ._3dbox, #radio-top:checked ~ .space3d-l ._3dbox, #radio-top:checked ~ .space3d-r ._3dbox, #radio-top:checked ~ .space3d-ba ._3dbox, #radio-top:checked ~ .space3d ._3dbox-t, #radio-top:checked ~ .space3d-t ._3dbox-t, #radio-top:checked ~ .space3d-bo ._3dbox-t, #radio-top:checked ~ .space3d-l ._3dbox-t, #radio-top:checked ~ .space3d-r ._3dbox-t, #radio-top:checked ~ .space3d-ba ._3dbox-t, #radio-top:checked ~ .space3d ._3dbox-bo, #radio-top:checked ~ .space3d-t ._3dbox-bo, #radio-top:checked ~ .space3d-bo ._3dbox-bo, #radio-top:checked ~ .space3d-l ._3dbox-bo, #radio-top:checked ~ .space3d-r ._3dbox-bo, #radio-top:checked ~ .space3d-ba ._3dbox-bo, #radio-top:checked ~ .space3d ._3dbox-l, #radio-top:checked ~ .space3d-t ._3dbox-l, #radio-top:checked ~ .space3d-bo ._3dbox-l, #radio-top:checked ~ .space3d-l ._3dbox-l, #radio-top:checked ~ .space3d-r ._3dbox-l, #radio-top:checked ~ .space3d-ba ._3dbox-l, #radio-top:checked ~ .space3d ._3dbox-r, #radio-top:checked ~ .space3d-t ._3dbox-r, #radio-top:checked ~ .space3d-bo ._3dbox-r, #radio-top:checked ~ .space3d-l ._3dbox-r, #radio-top:checked ~ .space3d-r ._3dbox-r, #radio-top:checked ~ .space3d-ba ._3dbox-r, #radio-top:checked ~ .space3d ._3dbox-ba, #radio-top:checked ~ .space3d-t ._3dbox-ba, #radio-top:checked ~ .space3d-bo ._3dbox-ba, #radio-top:checked ~ .space3d-l ._3dbox-ba, #radio-top:checked ~ .space3d-r ._3dbox-ba, #radio-top:checked ~ .space3d-ba ._3dbox-ba {
   transform: rotateX(-90deg); }
 
-#radio-back:checked ~ .space3d ._3dbox {
+#radio-back:checked ~ .space3d ._3dbox, #radio-back:checked ~ .space3d-t ._3dbox, #radio-back:checked ~ .space3d-bo ._3dbox, #radio-back:checked ~ .space3d-l ._3dbox, #radio-back:checked ~ .space3d-r ._3dbox, #radio-back:checked ~ .space3d-ba ._3dbox, #radio-back:checked ~ .space3d ._3dbox-t, #radio-back:checked ~ .space3d-t ._3dbox-t, #radio-back:checked ~ .space3d-bo ._3dbox-t, #radio-back:checked ~ .space3d-l ._3dbox-t, #radio-back:checked ~ .space3d-r ._3dbox-t, #radio-back:checked ~ .space3d-ba ._3dbox-t, #radio-back:checked ~ .space3d ._3dbox-bo, #radio-back:checked ~ .space3d-t ._3dbox-bo, #radio-back:checked ~ .space3d-bo ._3dbox-bo, #radio-back:checked ~ .space3d-l ._3dbox-bo, #radio-back:checked ~ .space3d-r ._3dbox-bo, #radio-back:checked ~ .space3d-ba ._3dbox-bo, #radio-back:checked ~ .space3d ._3dbox-l, #radio-back:checked ~ .space3d-t ._3dbox-l, #radio-back:checked ~ .space3d-bo ._3dbox-l, #radio-back:checked ~ .space3d-l ._3dbox-l, #radio-back:checked ~ .space3d-r ._3dbox-l, #radio-back:checked ~ .space3d-ba ._3dbox-l, #radio-back:checked ~ .space3d ._3dbox-r, #radio-back:checked ~ .space3d-t ._3dbox-r, #radio-back:checked ~ .space3d-bo ._3dbox-r, #radio-back:checked ~ .space3d-l ._3dbox-r, #radio-back:checked ~ .space3d-r ._3dbox-r, #radio-back:checked ~ .space3d-ba ._3dbox-r, #radio-back:checked ~ .space3d ._3dbox-ba, #radio-back:checked ~ .space3d-t ._3dbox-ba, #radio-back:checked ~ .space3d-bo ._3dbox-ba, #radio-back:checked ~ .space3d-l ._3dbox-ba, #radio-back:checked ~ .space3d-r ._3dbox-ba, #radio-back:checked ~ .space3d-ba ._3dbox-ba {
   transform: rotateY(180deg); }
 
 ._3dface--front {
@@ -124,13 +154,13 @@ body {
   .separator {
     margin-top: 20px; }
   /* 3D Cube */
-  .space3d {
+  .space3d, .space3d-t, .space3d-bo, .space3d-l, .space3d-r, .space3d-ba {
     perspective: 1000px;
     width: 100px;
     height: 100px;
     text-align: center;
     display: inline-block; }
-  ._3dbox {
+  ._3dbox, ._3dbox-t, ._3dbox-bo, ._3dbox-l, ._3dbox-r, ._3dbox-ba {
     display: inline-block;
     transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-align: center;
@@ -180,15 +210,15 @@ body {
     width: 100px;
     height: 100px;
     transform: rotateY(180deg) translate3d(0, 0, 50px); }
-  #radio-left:checked ~ .space3d ._3dbox {
+  #radio-left:checked ~ .space3d ._3dbox, #radio-left:checked ~ .space3d-t ._3dbox, #radio-left:checked ~ .space3d-bo ._3dbox, #radio-left:checked ~ .space3d-l ._3dbox, #radio-left:checked ~ .space3d-r ._3dbox, #radio-left:checked ~ .space3d-ba ._3dbox, #radio-left:checked ~ .space3d ._3dbox-t, #radio-left:checked ~ .space3d-t ._3dbox-t, #radio-left:checked ~ .space3d-bo ._3dbox-t, #radio-left:checked ~ .space3d-l ._3dbox-t, #radio-left:checked ~ .space3d-r ._3dbox-t, #radio-left:checked ~ .space3d-ba ._3dbox-t, #radio-left:checked ~ .space3d ._3dbox-bo, #radio-left:checked ~ .space3d-t ._3dbox-bo, #radio-left:checked ~ .space3d-bo ._3dbox-bo, #radio-left:checked ~ .space3d-l ._3dbox-bo, #radio-left:checked ~ .space3d-r ._3dbox-bo, #radio-left:checked ~ .space3d-ba ._3dbox-bo, #radio-left:checked ~ .space3d ._3dbox-l, #radio-left:checked ~ .space3d-t ._3dbox-l, #radio-left:checked ~ .space3d-bo ._3dbox-l, #radio-left:checked ~ .space3d-l ._3dbox-l, #radio-left:checked ~ .space3d-r ._3dbox-l, #radio-left:checked ~ .space3d-ba ._3dbox-l, #radio-left:checked ~ .space3d ._3dbox-r, #radio-left:checked ~ .space3d-t ._3dbox-r, #radio-left:checked ~ .space3d-bo ._3dbox-r, #radio-left:checked ~ .space3d-l ._3dbox-r, #radio-left:checked ~ .space3d-r ._3dbox-r, #radio-left:checked ~ .space3d-ba ._3dbox-r, #radio-left:checked ~ .space3d ._3dbox-ba, #radio-left:checked ~ .space3d-t ._3dbox-ba, #radio-left:checked ~ .space3d-bo ._3dbox-ba, #radio-left:checked ~ .space3d-l ._3dbox-ba, #radio-left:checked ~ .space3d-r ._3dbox-ba, #radio-left:checked ~ .space3d-ba ._3dbox-ba {
     transform: rotateY(90deg); }
-  #radio-right:checked ~ .space3d ._3dbox {
+  #radio-right:checked ~ .space3d ._3dbox, #radio-right:checked ~ .space3d-t ._3dbox, #radio-right:checked ~ .space3d-bo ._3dbox, #radio-right:checked ~ .space3d-l ._3dbox, #radio-right:checked ~ .space3d-r ._3dbox, #radio-right:checked ~ .space3d-ba ._3dbox, #radio-right:checked ~ .space3d ._3dbox-t, #radio-right:checked ~ .space3d-t ._3dbox-t, #radio-right:checked ~ .space3d-bo ._3dbox-t, #radio-right:checked ~ .space3d-l ._3dbox-t, #radio-right:checked ~ .space3d-r ._3dbox-t, #radio-right:checked ~ .space3d-ba ._3dbox-t, #radio-right:checked ~ .space3d ._3dbox-bo, #radio-right:checked ~ .space3d-t ._3dbox-bo, #radio-right:checked ~ .space3d-bo ._3dbox-bo, #radio-right:checked ~ .space3d-l ._3dbox-bo, #radio-right:checked ~ .space3d-r ._3dbox-bo, #radio-right:checked ~ .space3d-ba ._3dbox-bo, #radio-right:checked ~ .space3d ._3dbox-l, #radio-right:checked ~ .space3d-t ._3dbox-l, #radio-right:checked ~ .space3d-bo ._3dbox-l, #radio-right:checked ~ .space3d-l ._3dbox-l, #radio-right:checked ~ .space3d-r ._3dbox-l, #radio-right:checked ~ .space3d-ba ._3dbox-l, #radio-right:checked ~ .space3d ._3dbox-r, #radio-right:checked ~ .space3d-t ._3dbox-r, #radio-right:checked ~ .space3d-bo ._3dbox-r, #radio-right:checked ~ .space3d-l ._3dbox-r, #radio-right:checked ~ .space3d-r ._3dbox-r, #radio-right:checked ~ .space3d-ba ._3dbox-r, #radio-right:checked ~ .space3d ._3dbox-ba, #radio-right:checked ~ .space3d-t ._3dbox-ba, #radio-right:checked ~ .space3d-bo ._3dbox-ba, #radio-right:checked ~ .space3d-l ._3dbox-ba, #radio-right:checked ~ .space3d-r ._3dbox-ba, #radio-right:checked ~ .space3d-ba ._3dbox-ba {
     transform: rotateY(-90deg); }
-  #radio-bottom:checked ~ .space3d ._3dbox {
+  #radio-bottom:checked ~ .space3d ._3dbox, #radio-bottom:checked ~ .space3d-t ._3dbox, #radio-bottom:checked ~ .space3d-bo ._3dbox, #radio-bottom:checked ~ .space3d-l ._3dbox, #radio-bottom:checked ~ .space3d-r ._3dbox, #radio-bottom:checked ~ .space3d-ba ._3dbox, #radio-bottom:checked ~ .space3d ._3dbox-t, #radio-bottom:checked ~ .space3d-t ._3dbox-t, #radio-bottom:checked ~ .space3d-bo ._3dbox-t, #radio-bottom:checked ~ .space3d-l ._3dbox-t, #radio-bottom:checked ~ .space3d-r ._3dbox-t, #radio-bottom:checked ~ .space3d-ba ._3dbox-t, #radio-bottom:checked ~ .space3d ._3dbox-bo, #radio-bottom:checked ~ .space3d-t ._3dbox-bo, #radio-bottom:checked ~ .space3d-bo ._3dbox-bo, #radio-bottom:checked ~ .space3d-l ._3dbox-bo, #radio-bottom:checked ~ .space3d-r ._3dbox-bo, #radio-bottom:checked ~ .space3d-ba ._3dbox-bo, #radio-bottom:checked ~ .space3d ._3dbox-l, #radio-bottom:checked ~ .space3d-t ._3dbox-l, #radio-bottom:checked ~ .space3d-bo ._3dbox-l, #radio-bottom:checked ~ .space3d-l ._3dbox-l, #radio-bottom:checked ~ .space3d-r ._3dbox-l, #radio-bottom:checked ~ .space3d-ba ._3dbox-l, #radio-bottom:checked ~ .space3d ._3dbox-r, #radio-bottom:checked ~ .space3d-t ._3dbox-r, #radio-bottom:checked ~ .space3d-bo ._3dbox-r, #radio-bottom:checked ~ .space3d-l ._3dbox-r, #radio-bottom:checked ~ .space3d-r ._3dbox-r, #radio-bottom:checked ~ .space3d-ba ._3dbox-r, #radio-bottom:checked ~ .space3d ._3dbox-ba, #radio-bottom:checked ~ .space3d-t ._3dbox-ba, #radio-bottom:checked ~ .space3d-bo ._3dbox-ba, #radio-bottom:checked ~ .space3d-l ._3dbox-ba, #radio-bottom:checked ~ .space3d-r ._3dbox-ba, #radio-bottom:checked ~ .space3d-ba ._3dbox-ba {
     transform: rotateX(90deg); }
-  #radio-top:checked ~ .space3d ._3dbox {
+  #radio-top:checked ~ .space3d ._3dbox, #radio-top:checked ~ .space3d-t ._3dbox, #radio-top:checked ~ .space3d-bo ._3dbox, #radio-top:checked ~ .space3d-l ._3dbox, #radio-top:checked ~ .space3d-r ._3dbox, #radio-top:checked ~ .space3d-ba ._3dbox, #radio-top:checked ~ .space3d ._3dbox-t, #radio-top:checked ~ .space3d-t ._3dbox-t, #radio-top:checked ~ .space3d-bo ._3dbox-t, #radio-top:checked ~ .space3d-l ._3dbox-t, #radio-top:checked ~ .space3d-r ._3dbox-t, #radio-top:checked ~ .space3d-ba ._3dbox-t, #radio-top:checked ~ .space3d ._3dbox-bo, #radio-top:checked ~ .space3d-t ._3dbox-bo, #radio-top:checked ~ .space3d-bo ._3dbox-bo, #radio-top:checked ~ .space3d-l ._3dbox-bo, #radio-top:checked ~ .space3d-r ._3dbox-bo, #radio-top:checked ~ .space3d-ba ._3dbox-bo, #radio-top:checked ~ .space3d ._3dbox-l, #radio-top:checked ~ .space3d-t ._3dbox-l, #radio-top:checked ~ .space3d-bo ._3dbox-l, #radio-top:checked ~ .space3d-l ._3dbox-l, #radio-top:checked ~ .space3d-r ._3dbox-l, #radio-top:checked ~ .space3d-ba ._3dbox-l, #radio-top:checked ~ .space3d ._3dbox-r, #radio-top:checked ~ .space3d-t ._3dbox-r, #radio-top:checked ~ .space3d-bo ._3dbox-r, #radio-top:checked ~ .space3d-l ._3dbox-r, #radio-top:checked ~ .space3d-r ._3dbox-r, #radio-top:checked ~ .space3d-ba ._3dbox-r, #radio-top:checked ~ .space3d ._3dbox-ba, #radio-top:checked ~ .space3d-t ._3dbox-ba, #radio-top:checked ~ .space3d-bo ._3dbox-ba, #radio-top:checked ~ .space3d-l ._3dbox-ba, #radio-top:checked ~ .space3d-r ._3dbox-ba, #radio-top:checked ~ .space3d-ba ._3dbox-ba {
     transform: rotateX(-90deg); }
-  #radio-back:checked ~ .space3d ._3dbox {
+  #radio-back:checked ~ .space3d ._3dbox, #radio-back:checked ~ .space3d-t ._3dbox, #radio-back:checked ~ .space3d-bo ._3dbox, #radio-back:checked ~ .space3d-l ._3dbox, #radio-back:checked ~ .space3d-r ._3dbox, #radio-back:checked ~ .space3d-ba ._3dbox, #radio-back:checked ~ .space3d ._3dbox-t, #radio-back:checked ~ .space3d-t ._3dbox-t, #radio-back:checked ~ .space3d-bo ._3dbox-t, #radio-back:checked ~ .space3d-l ._3dbox-t, #radio-back:checked ~ .space3d-r ._3dbox-t, #radio-back:checked ~ .space3d-ba ._3dbox-t, #radio-back:checked ~ .space3d ._3dbox-bo, #radio-back:checked ~ .space3d-t ._3dbox-bo, #radio-back:checked ~ .space3d-bo ._3dbox-bo, #radio-back:checked ~ .space3d-l ._3dbox-bo, #radio-back:checked ~ .space3d-r ._3dbox-bo, #radio-back:checked ~ .space3d-ba ._3dbox-bo, #radio-back:checked ~ .space3d ._3dbox-l, #radio-back:checked ~ .space3d-t ._3dbox-l, #radio-back:checked ~ .space3d-bo ._3dbox-l, #radio-back:checked ~ .space3d-l ._3dbox-l, #radio-back:checked ~ .space3d-r ._3dbox-l, #radio-back:checked ~ .space3d-ba ._3dbox-l, #radio-back:checked ~ .space3d ._3dbox-r, #radio-back:checked ~ .space3d-t ._3dbox-r, #radio-back:checked ~ .space3d-bo ._3dbox-r, #radio-back:checked ~ .space3d-l ._3dbox-r, #radio-back:checked ~ .space3d-r ._3dbox-r, #radio-back:checked ~ .space3d-ba ._3dbox-r, #radio-back:checked ~ .space3d ._3dbox-ba, #radio-back:checked ~ .space3d-t ._3dbox-ba, #radio-back:checked ~ .space3d-bo ._3dbox-ba, #radio-back:checked ~ .space3d-l ._3dbox-ba, #radio-back:checked ~ .space3d-r ._3dbox-ba, #radio-back:checked ~ .space3d-ba ._3dbox-ba {
     transform: rotateY(180deg); }
   ._3dface--front {
     background-size: 100%;
