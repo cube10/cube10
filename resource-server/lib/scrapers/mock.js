@@ -8,7 +8,7 @@ module.exports = (addStory) => {
     },
     {
       title: 'Let\'s Paint!',
-      description: 'Even trees need a friend. We all need friends. Those great big fluffy clouds. Let\'s go up in here, and start having some fun The man who does the best job is the one who is happy at his job. We have all at one time or another mixed some mud. There we go. You better get your coat out, this is going to be a cold painting. Learn when to stop. We artists are a different breed of people. We\'re a happy bunch. This is gonna be a happy little seascape.',
+      description: 'Even trees need a friend. We all need friends. Those great big fluffy clouds. Let\'s go up in here, and start having some fun The man who does the best job is the one who is happy at his job. We have all at one time or another mixed some mud. There we go. You better get your coat out, this is going to be a cold painting. Learn when to stop. We artists are a different Lorad of people. We\'re a happy bunch. This is gonna be a happy little seascape.',
       imgUrl: 'http://lorempixel.com/800/800/sports/Happy-Little-Picture'
     },
     {
