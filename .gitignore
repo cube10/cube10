@@ -1,3 +1,5 @@
 node_modules
 db
 dev/build/bundle.js
+dev/build/css/*.css
+dev/build/*.html
