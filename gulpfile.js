@@ -24,8 +24,8 @@ gulp.task('copy-html', () => {
 
     './dev/components/header/header-view.html',
     // './dev/components/home/home-view.html',
-    './dev/components/main/main-view.html'
-    // './dev/components/nav/nav-view.html',
+    './dev/components/main/main-view.html',
+    './dev/components/nav/nav-view.html'
     // './dev/components/user/user-view.html'
 ])
   .pipe(gulp.dest(__dirname + '/dev/build'));
