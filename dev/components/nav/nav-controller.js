@@ -1,5 +1,4 @@
 angular.module('NavModule', [])
-  //.controller('NavController', [NavController])
   .directive('customNav', function() {
     return {
       restrict: 'E',
@@ -11,9 +10,3 @@ angular.module('NavModule', [])
   // defines controllers //
   /////////////////////////
 
-  //TODO: add logic to keep track of active tab for styling
-//function NavController() {
-  //this.active
-  
-
-//}
