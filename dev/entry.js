@@ -3,6 +3,7 @@
 const angular = require('angular');
 
 // require('/components/home/home-controller');
+require('./components/landing/main-landing-controller');
 require('./components/landing/landing-controller');
 require('./components/router/route-controller');
 require('./components/header/header-controller');

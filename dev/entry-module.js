@@ -5,5 +5,5 @@
 const angular = require('angular');
 
 (function () {
-  angular.module('App', ['MainModule', 'HeaderModule', 'RouteModule', 'LandingModule']);
+  angular.module('App', ['MainModule', 'HeaderModule', 'RouteModule', 'LandingModule', 'LoginModule', 'RegisterModule']);
 })();
