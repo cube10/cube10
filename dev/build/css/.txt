@@ -1,2 +1,0 @@
-
-Here so that CSS folder doesn't get deleted
