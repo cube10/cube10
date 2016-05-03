@@ -21,11 +21,14 @@ gulp.task('copy-html', () => {
   gulp.src([__dirname +
     '/dev/index.html',
     // './dev/components/footer/footer-view.html',
-
+    './dev/components/landing/signUp-view.html',
+    './dev/components/landing/register-view.html',
+    './dev/components/landing/landing-view.html',
+    './dev/components/landing/login-view.html',
     './dev/components/header/header-view.html',
     // './dev/components/home/home-view.html',
-    './dev/components/main/main-view.html'
-    // './dev/components/nav/nav-view.html',
+    './dev/components/main/main-view.html',
+    './dev/components/nav/nav-view.html'
     // './dev/components/user/user-view.html'
 ])
   .pipe(gulp.dest(__dirname + '/dev/build'));

@@ -1,0 +1,16 @@
+<section>
+
+  <header-directive></header-directive>
+
+  <form ng-submit="landingCtrl.signIn(user)">
+    <input type="text" ng-model="user.username" placeholder="Username">
+    <input type="password" ng-model="user.password" placeholder="Password">
+    <button type="submit">Sign In</button>
+  </form>
+
+  <button ng-click="landingCtrl.signUpPage()">Sign Up</button>
+
+
+<button ng-click="landingCtrl.continueTo()">Continue To Site</button>
+
+</section>
