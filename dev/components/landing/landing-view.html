@@ -19,7 +19,7 @@
 
 <div id="wrapper">
 
-	<form name="login-form" class="login-form" action="" method="post">
+	<form name="login-form" class="login-form" ng-submit="landingCtrl.signIn(user)">
 
 		<div class="header">
 		<h1>Login Form</h1>
@@ -27,16 +27,16 @@
 		</div>
 
 		<div class="content">
-		<input name="username" type="text" class="input username" placeholder="Username" />
+		<input name="username" type="text" class="input username" placeholder="Username" ng-model="user.username" />
 		<div class="user-icon"></div>
-		<input name="password" type="password" class="input password" placeholder="Password" />
+		<input name="password" type="password" class="input password" placeholder="Password" ng-model="user.password"/>
 		<div class="pass-icon"></div>
 		</div>
 
 		<div class="footer">
 		<input type="submit" name="submit" value="Login" class="button" />
-		<input type="submit" name="submit" value="Register" class="register" />
-    <input type="submit" name="submit" value="Continue" class="register" />
+		<input name="submit" value="Register" class="register" ng-click="landingCtrl.signUpPage()" />
+    <input name="submit" value="Continue" class="register" ng-click="landingCtrl.continueTo()" />
 		</div>
 
 	</form>

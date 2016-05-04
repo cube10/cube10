@@ -5,7 +5,6 @@ let rename = require('gulp-rename');
 let del = require('del');
 let sass = require('gulp-sass');
 
-
 let jsPaths   = ['*.js', 'models/*.js', 'routes/*.js', 'tests/**/*.js', 'dev/**/*.js'];
 let htmlPaths = ['dev/**/*.html'];
 let scssPaths = ['dev/style/*.scss'];
@@ -48,10 +47,10 @@ gulp.task('watch', () =>{
 });
 
 gulp.task('default', ['del-public', 'webpack', 'copy-html', 'sass', 'watch']);
-  
-  
-  
-  
+
+
+
+
 // gulp.task('bundle:test', () => {
 //   return gulp.src(__dirname + '/tests/karma-testing.js')
 //   .pipe(webpack({output: {filename: 'test_bundle.js'},
