@@ -11,7 +11,8 @@ header {
 		/*border: solid;*/
 	/*}*/
 	width: 100vw;
-	background-color: brown; //TODO: color
+	background-color: #644DFF;
+	opacity: 0.9;
 
 }
 
@@ -23,7 +24,7 @@ header {
 	@media all and (max-width:400px) {
 		margin: 0;
 	}
- 
+
 	.logoContainer {
 		@media all and (max-width:400px) {
 			display: none;
@@ -70,7 +71,7 @@ header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	
+
 	@media all and (max-width:369px) {
 		flex-wrap: wrap;
 	}
@@ -92,7 +93,7 @@ header {
 
 		-webkit-transition:box-shadow 0.5s;
 	}
-	
+
 	a.button i{
 		float: right;
 		margin-top: 2px;
