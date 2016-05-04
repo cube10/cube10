@@ -66,7 +66,7 @@ header {
 .header {
 	display:flex;
 	align-items: flex-end;
-	margin-left: 3em;
+	margin-left: 2em;
 	margin-right: 3em;
 	@media all and (max-width:400px) {
 		margin: 0;
@@ -99,7 +99,10 @@ header {
 			// padding-bottom: 1%;
 			margin: 0;
 			header: 0;
-			@media (max-width:400px) {
+			@media (max-width: 720px) {
+				font-size: 14px;
+			}
+			@media (max-width:500px) {
 				display: none;
 			}
 		}
@@ -112,11 +115,14 @@ header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-
-	@media (max-width:369px) {
-		flex-direction: column;
-		flex-wrap: wrap;
+	@media (max-width: 620px) {
+		justify-content: center;
+		padding-bottom: 0%;
 	}
+	// @media (max-width: 369px) {
+	// 	flex-direction: column;
+	// 	flex-wrap: wrap;
+	// }
 }
 
 .button-1 {
@@ -137,6 +143,7 @@ header {
 
 .button-3 {
 	@include nav-buttons;
+	margin-right: 1%;
 }
 
 .button-3:hover {
