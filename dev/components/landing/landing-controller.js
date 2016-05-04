@@ -19,6 +19,12 @@ require(__dirname + '/../../services/auth_service')(app);
     //   })
     // }
     //
+    
+    // vm.num = 0;
+    // vm.add = function(a, b) {
+    //   vm.num = a + b;
+    // };
+
     vm.signUp = function(user) {
       console.log('USER SIGNUP HAS BEEN HIT WITH : ', user);
       AuthService.createUser(user, function(err, res) {
