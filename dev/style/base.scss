@@ -46,20 +46,20 @@ $tertiary-darker: 	#89B21B;
 	cursor: pointer;
 }
 
+///////////////////////////
+// styles
+//////////////////////////
+
 body {
 	padding: 0px;
 }
 
 header {
-	/*border: solid;*/
-	/** {*/
-		/*border: solid;*/
-	/*}*/
 	height: 128px;
 	width: 100vw;
 	background-color: $primary;
-	opacity: 0.9;
-	box-shadow: 1px 1px 0px #888888;
+	// opacity: 0.9;
+	box-shadow: 2px 2px 0px #888888;
 
 }
 
@@ -74,8 +74,8 @@ header {
 	}
 
 	.title {
-		margin-left: 3%;
-		margin-right: 3%;
+		margin-left: 2%;
+		margin-right: 2%;
 		margin-bottom: 0;
 		@media all and (max-width:400px) {
 			margin: auto;
@@ -87,7 +87,7 @@ header {
 
 		.headerTitleMain {
 			font-family: Roboto, sans-serif;
-			font-size: 24px;
+			font-size: 32px;
 			margin: 0;
 			padding-bottom: 1%;
 			padding-top: 1%;
@@ -96,7 +96,7 @@ header {
 		.headerTitleSub {
 			font-size: 16px;
 			font-family: Lora, serif;
-			padding-bottom: 2%;
+			// padding-bottom: 1%;
 			margin: 0;
 			header: 0;
 			@media (max-width:400px) {
