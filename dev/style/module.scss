@@ -91,6 +91,15 @@ body {
   max-height: 100%;
 }
 
+.container {
+  position: absolute;
+  top: 129px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow-y: scroll;
+}
+
 .cube-container {
   display: flex;
   flex-direction: row;
@@ -223,12 +232,20 @@ body {
   @include cube-dimensions($cube-width, $cube-height);
   transform: rotateX(90deg) translate3d(0, 0, $cube-half-width);
   text-align: center;
+  font-size: 14px;
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
 }
 
 ._3dface--bottom {
   @include cube-dimensions($cube-width, $cube-height);
   transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
   text-align: center;
+  font-size: 14px;
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
 }
 
 ._3dface--left {
@@ -252,26 +269,46 @@ body {
 
 #radio-left:checked ~ .space3d ._3dbox {
   transform: rotateY(90deg);
+  -moz-transform: rotateX(90deg);
+  -webkit-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
   // @include radio-transform(90deg);
 }
 
 #radio-right:checked ~ .space3d ._3dbox {
   transform: rotateY(-90deg);
+  -moz-transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  -o-transform: rotateX(-90deg);
   // @include radio-transform(-90deg);
 }
 
 #radio-bottom:checked ~ .space3d ._3dbox {
   transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -webkit-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
   // @include radio-transform(90deg);
 }
 
 #radio-top:checked ~ .space3d ._3dbox {
   transform: rotateX(-90deg);
+  -moz-transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  -o-transform: rotateX(-90deg);
   // @include radio-transform(-90deg);
 }
 
 #radio-back:checked ~ .space3d ._3dbox {
   transform: rotateY(180deg);
+  -moz-transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
   // @include radio-transform(180deg);
 }
 
@@ -331,6 +368,10 @@ body {
     height: 100%;
     transform-style: preserve-3d;
     transform: rotateX(-15deg) rotateY(15deg);
+    -moz-transform: rotateX(-15deg) rotateY(15deg);
+    -webkit-transform: rotateX(-15deg) rotateY(15deg);
+    -ms-transform: rotateX(-15deg) rotateY(15deg);
+    -o-transform: rotateX(-15deg) rotateY(15deg);
   }
 
   // ._3dface {
