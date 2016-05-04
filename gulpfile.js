@@ -46,19 +46,15 @@ gulp.task('watch', () =>{
   gulp.watch(htmlPaths, ['copy-html']);;
 });
 
+gulp.task('bundle:test', () => {
+  return gulp.src(__dirname + '/tests/karma-testing.js')
+  .pipe(webpack({output: {filename: 'test_bundle.js'},
+  watch: true
+}))
+  .pipe(gulp.dest('./test'));
+});
+
 gulp.task('default', ['del-public', 'webpack', 'copy-html', 'sass', 'watch']);
-
-
-
-
-// gulp.task('bundle:test', () => {
-//   return gulp.src(__dirname + '/tests/karma-testing.js')
-//   .pipe(webpack({output: {filename: 'test_bundle.js'},
-//   watch: true
-// }))
-//   .pipe(gulp.dest('./test'));
-// });
-
 // gulp.task('eslint', () => {
 //   gulp.src(paths)
 //   .pipe(lint())
