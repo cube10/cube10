@@ -1,5 +1,5 @@
-node_modules
 db
-dev/build/bundle.js
+node_modules
 dev/build/css/*.css
+dev/build/bundle.js
 dev/build/*.html
