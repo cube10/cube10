@@ -19,5 +19,5 @@ const r = new snoowrap({
     "imgUrl": post.thumbnail
     // "authro": post.author
   })
-  }).then(console.log)
+  })
 }

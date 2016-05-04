@@ -1,1 +1,2 @@
-require('./resource-server/index.js')
+require('./resource-server/')
+require('./client-server/')
