@@ -1,6 +1,20 @@
 ///////////////////
 // Header Module //
 ///////////////////
+
+	///////////////////////////
+	// variables
+	//////////////////////////
+
+$primary: 					#337FFF;
+$primary-darker: 		#0546B2;
+$secondary: 				#FF654D;
+$tertiary: 					#9ACC15;
+$tertiary-darker: 	#89B21B;
+
+
+
+
 body {
 	padding: 0px;
 }
@@ -11,7 +25,7 @@ header {
 		/*border: solid;*/
 	/*}*/
 	width: 100vw;
-	background-color: #644DFF;
+	background-color: $primary;
 	opacity: 0.9;
 
 }
@@ -48,25 +62,26 @@ header {
 
 		.headerTitleMain {
 			font-family: Roboto, sans-serif;
-			font-size: 4em;
+			font-size: 24px;
 			margin: 0;
-			header: 0;
+			padding-bottom: 1%
 		}
 
 		.headerTitleSub {
-			@media all and (max-width:400px) {
-				display: none;
-			}
+			font-size: 16px;
 			font-family: Lora, serif;
-			font-size: 2em;
+			padding-bottom: 2%;
 			margin: 0;
 			header: 0;
+			@media (max-width:400px) {
+				display: none;
+			}
 		}
 	}
 }
 
 .customNav {
-	padding: 0;
+	padding-bottom: 1%;
 	margin: 0;
 	display: flex;
 	flex-direction: row;
@@ -74,6 +89,7 @@ header {
 
 	@media all and (max-width:369px) {
 		flex-wrap: wrap;
+		flex-direction: column;
 	}
 
 	a.button{

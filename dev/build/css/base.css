@@ -7,7 +7,7 @@ header {
   /*border: solid;*/
   /*}*/
   width: 100vw;
-  background-color: #644DFF;
+  background-color: #337FFF;
   opacity: 0.9; }
 
 .header {
@@ -33,27 +33,29 @@ header {
         margin: auto; } }
     .header .title .headerTitleMain {
       font-family: Roboto, sans-serif;
-      font-size: 4em;
+      font-size: 24px;
       margin: 0;
-      header: 0; }
+      padding-bottom: 1%; }
     .header .title .headerTitleSub {
+      font-size: 16px;
       font-family: Lora, serif;
-      font-size: 2em;
+      padding-bottom: 2%;
       margin: 0;
       header: 0; }
-      @media all and (max-width: 400px) {
+      @media (max-width: 400px) {
         .header .title .headerTitleSub {
           display: none; } }
 
 .customNav {
-  padding: 0;
+  padding-bottom: 1%;
   margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around; }
   @media all and (max-width: 369px) {
     .customNav {
-      flex-wrap: wrap; } }
+      flex-wrap: wrap;
+      flex-direction: column; } }
   .customNav a.button {
     background: inherit;
     border-radius: 15px;

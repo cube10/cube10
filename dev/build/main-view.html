@@ -1,11 +1,11 @@
 <section ng-init="mainctrl.getStories()" ng-controller="MainController as mainctrl" class="cube-container">
   <section class="cube-holder" ng-repeat="story in mainctrl.stories" >
-    <input type="radio" checked id="radio-front" name="select-face"/>
-    <input type="radio" id="radio-left" name="select-face"/>
-    <input type="radio" id="radio-right" name="select-face"/>
-    <input type="radio" id="radio-top" name="select-face"/>
-    <input type="radio" id="radio-bottom" name="select-face"/>
-    <input type="radio" id="radio-back" name="select-face"/>
+    <input type="radio" class="radio-button" checked id="radio-front" name="select-face"/>
+    <input type="radio" class="radio-button" id="radio-left" name="select-face"/>
+    <input type="radio" class="radio-button" id="radio-right" name="select-face"/>
+    <input type="radio" class="radio-button" id="radio-top" name="select-face"/>
+    <input type="radio" class="radio-button" id="radio-bottom" name="select-face"/>
+    <input type="radio" class="radio-button" id="radio-back" name="select-face"/>
 
     <div class="separator"></div>
 
@@ -13,10 +13,8 @@
 
 
       <div ng-class="mainctrl.boxCubeStyle" class="_3dbox" >
-        <div class="_3dface _3dface--front" ng-click="mainctrl.nextFace()">
-          <img class="story-image" src="{{story.imgUrl}}" alt="" />
-        </div>
-        <div class="_3dface _3dface--top" ng-click="mainctrl.nextFace()">{{story.author}}</div>
+        <div class="_3dface _3dface--front" ng-click="mainctrl.nextFace()"><img class="story-image" src="{{story.imgUrl}}" alt="" /></div>
+        <div class="_3dface _3dface--top" ng-click="mainctrl.nextFace()"></br></br>{{story.title}}</div>
         <div class="_3dface _3dface--bottom" ng-click="mainctrl.nextFace()">{{story.description}}</div>
         <div class="_3dface _3dface--left" ng-click="mainctrl.nextFace()"></div>
         <div class="_3dface _3dface--right" ng-click="mainctrl.nextFace()"></div>
