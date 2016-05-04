@@ -16,10 +16,10 @@ module.exports = (router) => {
         let authHeader = req.headers.authorization.split(' ')
         let authArray = new Buffer(authHeader[1], 'base64').toString().split(':')
 
-        let userName = authArray[0]
+        let username = authArray[0]
         let password = authArray[1]
 
-        User.findOne({userName: userName}, (err, user) => {
+        User.findOne({username: username}, (err, user) => {
           if (!user) {return res.json({status: 'failure'})}
 
           let valid = user.compareHash(password, user.password)

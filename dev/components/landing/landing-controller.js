@@ -23,7 +23,7 @@ require(__dirname + '/../../services/auth_service')(app);
       console.log('USER SIGNUP HAS BEEN HIT WITH : ', user);
       AuthService.createUser(user, function(err, res) {
         // if (err) return ErrorService('Problem Creating User');
-        $location.path('/index');
+        $location.url('/index');
       })
     }
     //

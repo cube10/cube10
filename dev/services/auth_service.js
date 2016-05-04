@@ -8,10 +8,12 @@ module.exports = function(app) {
         cb || function() {};
         $http.post(url + '/signup', user)
           .then((res) => {
-            console.log('TOKEN GIVEN BACK TO AUTH SERVICE : ', token);
+            console.log(res);
+            console.log('AUTH SERVICE : TOKEN GIVEN BACK TO AUTH SERVICE : ');
             token = $window.localStorage.token = res.data.token;
             cb(null, res)
           }, (err) => {
+            console.log('AUTHER SERVICE ERROR', err);
             cb(err)
           })
       },

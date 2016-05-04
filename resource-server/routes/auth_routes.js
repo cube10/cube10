@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require(__dirname + '/../models/user');
+const User = require(__dirname + '/../models/user_module');
 const jsonParser = require('body-parser').json();
 // const handleDBError = require(__dirname + '/../lib/handle_db_error');
 const basicHTTP = require(__dirname + '/../lib/basic_http');
@@ -7,25 +7,29 @@ const basicHTTP = require(__dirname + '/../lib/basic_http');
 var authRouter = module.exports = exports = express.Router();
 
 authRouter.post('/signup', jsonParser, (req, res) => {
-  console.log('SINGUP BACKEND ROUTE HAS BEEN HIT WITH : ', req.body);
-  console.log('USER IS AND SHOULD BE A CONSTRUCTOR : ', User);
   var newUser = new User();
-  console.log('NEW USER USERNAME ', newUser.username);
+  console.log('REQUET BODY AUTH ROUTE : ', req.body);
   // if (!((req.body.email || '').length && (req.body.password || '').length > 7)) {
   //   return res.status(400).json({msg: 'invalid username or password'});
   // }
   newUser.username = req.body.username || req.body.email;
   // newUser.authentication.email = req.body.email;
   newUser.email = req.body.email;
-  console.log('TRYING A NEW USER', newUser.email);
-  newUser.hashPassword(req.body.password);
+  newUser.password = req.body.password;
+  // newUser.hashPassword(req.body.password);
   newUser.save((err, data) => {
+    console.log('ERROR from auth route : ', err);
     // if (err) return handleDBError(err, res);
-    // var token = data.generateToken();
-    res.status(200).json({token: data.generateToken()});
+
+    var token = data.generateToken();
+    console.log('AUTH ROUTE : TOKE: ', token);
+    // if (err) {
+    //   res.status(500).json({msg: 'server error'})
+    // }
+    res.status(200).json({token: token});
+    // res.status(200)
     // res.status(200).json(token);
-debugger;
-    // res.json({token: data.generateToken()})
+    // res.json({token: token})
   });
 })
 
