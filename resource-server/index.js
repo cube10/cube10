@@ -3,8 +3,7 @@ let S_PORT = Number(process.env.S_PORT) || require('./.config').S_PORT || 3000
 let DB =  require('./.config').DB || process.env.DB
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
-// mongoose.connect(DB)
-mongoose.connect('mongodb://localhost/db');
+mongoose.connect(DB)
 
 let express = require('express')
 let publicRouter = express.Router()
