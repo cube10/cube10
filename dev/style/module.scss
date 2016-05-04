@@ -22,9 +22,11 @@
   $rs-sm-cube-half-width:   50px;
 
     //colors
-  $primary-color: ;
-  $secondary-color: ;
-  $tertiary-color: ;
+    $primary: 					#337FFF;
+    $primary-darker: 		#0546B2;
+    $secondary: 				#FF654D;
+    $tertiary: 					#9ACC15;
+    $tertiary-darker: 	#89B21B;
 
 
   /////////////////////
@@ -75,23 +77,46 @@ body {
   font-family: Arial;
 }
 
+.radio-button {
+  margin-right: 5%;
+  margin-bottom: 3%;
+  @media (max-width: 500px) {
+    margin-right: 3%;
+    margin-bottom: 1%;
+  }
+}
+
 .story-image {
   max-width: 100%;
   max-height: 100%;
 }
 
+.container {
+  position: absolute;
+  top: 129px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  overflow-y: scroll;
+}
+
 .cube-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   @media (max-width: 500px) {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 }
 
 .cube-holder {
   margin: 5%;
+  @media (max-width: 500px) {
+    width: 40%;
+  }
 }
 
 
@@ -103,37 +128,42 @@ body {
 .space3d {
   @include cube-dimensions($cube-width, $cube-height);
   @include space3d-default;
+  @media (max-width: 500px) {
+    width: 100px;
+    height: 100px;
+
+  }
 }
 
-.space3d-t {
-  @include cube-dimensions($cube-width, $cube-height);
-  @include space3d-default;
-  transform: rotateX(-90deg);
-}
-
-.space3d-bo {
-  @include cube-dimensions($cube-width, $cube-height);
-  @include space3d-default;
-  transform: rotateX(90deg);
-}
-
-.space3d-l {
-  @include cube-dimensions($cube-width, $cube-height);
-  @include space3d-default;
-  transform: rotateY(90deg);
-}
-
-.space3d-r {
-  @include cube-dimensions($cube-width, $cube-height);
-  @include space3d-default;
-  transform: rotateY(-90deg);
-}
-
-.space3d-ba {
-  @include cube-dimensions($cube-width, $cube-height);
-  @include space3d-default;
-  transform: rotateY(180deg);
-}
+// .space3d-t {
+//   @include cube-dimensions($cube-width, $cube-height);
+//   @include space3d-default;
+//   transform: rotateX(-90deg);
+// }
+//
+// .space3d-bo {
+//   @include cube-dimensions($cube-width, $cube-height);
+//   @include space3d-default;
+//   transform: rotateX(90deg);
+// }
+//
+// .space3d-l {
+//   @include cube-dimensions($cube-width, $cube-height);
+//   @include space3d-default;
+//   transform: rotateY(90deg);
+// }
+//
+// .space3d-r {
+//   @include cube-dimensions($cube-width, $cube-height);
+//   @include space3d-default;
+//   transform: rotateY(-90deg);
+// }
+//
+// .space3d-ba {
+//   @include cube-dimensions($cube-width, $cube-height);
+//   @include space3d-default;
+//   transform: rotateY(180deg);
+// }
 
 
 ._3dbox {
@@ -141,30 +171,30 @@ body {
 
 }
 
-._3dbox-t {
-  @include _3dbox-default;
-  transform: rotateX(-90deg);
-}
-
-._3dbox-bo {
-  @include _3dbox-default;
-  transform: rotateX(90deg);
-}
-
-._3dbox-l {
-  @include _3dbox-default;
-  transform: rotateY(90deg);
-}
-
-._3dbox-r {
-  @include _3dbox-default;
-  transform: rotateY(-90deg);
-}
-
-._3dbox-ba {
-  @include _3dbox-default;
-  transform: rotateY(180deg);
-}
+// ._3dbox-t {
+//   @include _3dbox-default;
+//   transform: rotateX(-90deg);
+// }
+//
+// ._3dbox-bo {
+//   @include _3dbox-default;
+//   transform: rotateX(90deg);
+// }
+//
+// ._3dbox-l {
+//   @include _3dbox-default;
+//   transform: rotateY(90deg);
+// }
+//
+// ._3dbox-r {
+//   @include _3dbox-default;
+//   transform: rotateY(-90deg);
+// }
+//
+// ._3dbox-ba {
+//   @include _3dbox-default;
+//   transform: rotateY(180deg);
+// }
 
   ///////////////////////
   // cube faces
@@ -173,7 +203,7 @@ body {
 ._3dface {
   overflow: hidden;
   position: absolute;
-  border: 3px solid orange;
+  border: 3px solid $tertiary-darker;
   background: #FFF;
   box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
   color: #333;
@@ -181,6 +211,15 @@ body {
   word-wrap: normal;
   overflow: hidden;
   /*line height causes issues*/
+
+  @media (max-width: 500px) {
+    border: 2px solid $tertiary-darker;
+    // background: #FFF;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.3);
+    // color: #333;
+    word-wrap: normal;
+    // white-space: pre-line;
+  }
 
 }
 
@@ -197,11 +236,21 @@ body {
 ._3dface--top {
   @include cube-dimensions($cube-width, $cube-height);
   transform: rotateX(90deg) translate3d(0, 0, $cube-half-width);
+  text-align: center;
+  font-size: 14px;
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
 }
 
 ._3dface--bottom {
   @include cube-dimensions($cube-width, $cube-height);
   transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
+  text-align: center;
+  font-size: 14px;
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
 }
 
 ._3dface--left {
@@ -225,26 +274,46 @@ body {
 
 #radio-left:checked ~ .space3d ._3dbox {
   transform: rotateY(90deg);
+  -moz-transform: rotateX(90deg);
+  -webkit-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
   // @include radio-transform(90deg);
 }
 
 #radio-right:checked ~ .space3d ._3dbox {
   transform: rotateY(-90deg);
+  -moz-transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  -o-transform: rotateX(-90deg);
   // @include radio-transform(-90deg);
 }
 
 #radio-bottom:checked ~ .space3d ._3dbox {
   transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -webkit-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
   // @include radio-transform(90deg);
 }
 
 #radio-top:checked ~ .space3d ._3dbox {
   transform: rotateX(-90deg);
+  -moz-transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  -o-transform: rotateX(-90deg);
   // @include radio-transform(-90deg);
 }
 
 #radio-back:checked ~ .space3d ._3dbox {
   transform: rotateY(180deg);
+  -moz-transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
   // @include radio-transform(180deg);
 }
 
@@ -256,6 +325,7 @@ body {
 ._3dface--left {
   // background: url(http://i.telegraph.co.uk/multimedia/archive/01842/landscape-rainbow_1842437i.jpg);
   background-size: auto 100%;
+  background-color: $primary-darker;
 }
 
 ._3dface--right {
@@ -286,13 +356,7 @@ body {
   }
 
   /* 3D Cube */
-  .space3d {
-    perspective: 1000px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    display: inline-block;
-  }
+
 
   ._3dbox {
     display: inline-block;
@@ -303,19 +367,23 @@ body {
     height: 100%;
     transform-style: preserve-3d;
     transform: rotateX(-15deg) rotateY(15deg);
+    -moz-transform: rotateX(-15deg) rotateY(15deg);
+    -webkit-transform: rotateX(-15deg) rotateY(15deg);
+    -ms-transform: rotateX(-15deg) rotateY(15deg);
+    -o-transform: rotateX(-15deg) rotateY(15deg);
   }
 
-  ._3dface {
-    overflow: hidden;
-    position: absolute;
-    border: 1px solid #888;
-    background: #FFF;
-    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
-    color: #333;
-    line-height: 100px;
-    word-wrap: normal;
-    white-space: pre-line;
-  }
+  // ._3dface {
+  //   overflow: hidden;
+  //   position: absolute;
+  //   border: 1px solid #888;
+  //   background: #FFF;
+  //   box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
+  //   color: #333;
+  //   line-height: 100px;
+  //   word-wrap: normal;
+  //   white-space: pre-line;
+  // }
 
   ._3dface--front {
     width: 100px;
