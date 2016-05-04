@@ -53,6 +53,10 @@
     height: 100%;
     transform-style: preserve-3d;
     transform: rotateX(-15deg) rotateY(15deg);
+    -moz-transform: rotateX(-15deg) rotateY(15deg);
+    -webkit-transform: rotateX(-15deg) rotateY(15deg);
+    -ms-transform: rotateX(-15deg) rotateY(15deg);
+    -o-transform: rotateX(-15deg) rotateY(15deg);
   }
 
 /// fix this mixin,
@@ -226,6 +230,10 @@ body {
 ._3dface--front {
   @include cube-dimensions($cube-width, $cube-height);
   transform: translate3d(0, 0, $cube-half-width);
+  -moz-transform: translate3d(0, 0, $cube-half-width);
+  -webkit-transform: translate3d(0, 0, $cube-half-width);
+  -ms-transform: translate3d(0, 0, $cube-half-width);
+  -o-transform: translate3d(0, 0, $cube-half-width);
   white-space: pre-line;
   display: flex;
   flex-wrap: wrap;
@@ -236,6 +244,10 @@ body {
 ._3dface--top {
   @include cube-dimensions($cube-width, $cube-height);
   transform: rotateX(90deg) translate3d(0, 0, $cube-half-width);
+  -moz-transform: rotateX(90deg) translate3d(0, 0, $cube-half-width);
+  -webkit-transform: rotateX(90deg) translate3d(0, 0, $cube-half-width);
+  -ms-transform: rotateX(90deg) translate3d(0, 0, $cube-half-width);
+  -o-transform: rotateX(90deg) translate3d(0, 0, $cube-half-width);
   text-align: center;
   font-size: 14px;
   @media (max-width: 500px) {
@@ -246,6 +258,10 @@ body {
 ._3dface--bottom {
   @include cube-dimensions($cube-width, $cube-height);
   transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
+  -moz-transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
+  -webkit-transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
+  -ms-transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
+  -o-transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
   text-align: center;
   font-size: 14px;
   @media (max-width: 500px) {
@@ -258,6 +274,10 @@ body {
   left: 50%;
   margin-left: -$cube-half-width;
   transform: rotateY(-90deg) translate3d(0, 0, $cube-half-width);
+  -moz-transform: rotateY(-90deg) translate3d(0, 0, $cube-half-width);
+  -webkit-transform: rotateY(-90deg) translate3d(0, 0, $cube-half-width);
+  -ms-transform: rotateY(-90deg) translate3d(0, 0, $cube-half-width);
+  -o-transform: rotateY(-90deg) translate3d(0, 0, $cube-half-width);
 }
 
 ._3dface--right {
@@ -265,11 +285,19 @@ body {
   left: 50%;
   margin-left: -$cube-half-width;
   transform: rotateY(90deg) translate3d(0, 0, $cube-half-width);
+  -moz-transform: rotateY(90deg) translate3d(0, 0, $cube-half-width);
+  -webkit-transform: rotateY(90deg) translate3d(0, 0, $cube-half-width);
+  -ms-transform: rotateY(90deg) translate3d(0, 0, $cube-half-width);
+  -o-transform: rotateY(90deg) translate3d(0, 0, $cube-half-width);
 }
 
 ._3dface--back {
   @include cube-dimensions($cube-width, $cube-height);
   transform: rotateY(180deg) translate3d(0, 0, $cube-half-width);
+  -moz-transform: rotateY(180deg) translate3d(0, 0, $cube-half-width);
+  -webkit-transform: rotateY(180deg) translate3d(0, 0, $cube-half-width);
+  -ms-transform: rotateY(180deg) translate3d(0, 0, $cube-half-width);
+  -o-transform: rotateY(180deg) translate3d(0, 0, $cube-half-width);
 }
 
 #radio-left:checked ~ .space3d ._3dbox {
@@ -389,6 +417,10 @@ body {
     width: 100px;
     height: 100px;
     transform: translate3d(0, 0, 50px);
+    -moz-transform: translate3d(0, 0, 50px);
+    -webkit-transform: translate3d(0, 0, 50px);
+    -ms-transform: translate3d(0, 0, 50px);
+    -o-transform: translate3d(0, 0, 50px);
     white-space: pre-line;
     display: flex;
     flex-wrap: nowrap;
@@ -398,12 +430,20 @@ body {
     width: 100px;
     height: 100px;
     transform: rotateX(90deg) translate3d(0, 0, 50px);
+    -moz-transform: rotateX(90deg) translate3d(0, 0, 50px);
+    -webkit-transform: rotateX(90deg) translate3d(0, 0, 50px);
+    -ms-transform: rotateX(90deg) translate3d(0, 0, 50px);
+    -o-transform: rotateX(90deg) translate3d(0, 0, 50px);
   }
 
   ._3dface--bottom {
     width: 100px;
     height: 100px;
     transform: rotateX(-90deg) translate3d(0, 0, 50px);
+    -moz-transform: rotateX(-90deg) translate3d(0, 0, 50px);
+    -webkit-transform: rotateX(-90deg) translate3d(0, 0, 50px);
+    -ms-transform: rotateX(-90deg) translate3d(0, 0, 50px);
+    -o-transform: rotateX(-90deg) translate3d(0, 0, 50px);
   }
 
   ._3dface--left {
@@ -412,6 +452,10 @@ body {
     left: 50%;
     margin-left: -50px;
     transform: rotateY(-90deg) translate3d(0, 0, 50px);
+    -moz-transform: rotateY(-90deg) translate3d(0, 0, 50px);
+    -webkit-transform: rotateY(-90deg) translate3d(0, 0, 50px);
+    -ms-transform: rotateY(-90deg) translate3d(0, 0, 50px);
+    -o-transform: rotateY(-90deg) translate3d(0, 0, 50px);
   }
 
   ._3dface--right {
@@ -420,12 +464,20 @@ body {
     left: 50%;
     margin-left: -50px;
     transform: rotateY(90deg) translate3d(0, 0, 50px);
+    -moz-transform: rotateY(90deg) translate3d(0, 0, 50px);
+    -webkit-transform: rotateY(90deg) translate3d(0, 0, 50px);
+    -ms-transform: rotateY(90deg) translate3d(0, 0, 50px);
+    -o-transform: rotateY(90deg) translate3d(0, 0, 50px);
   }
 
   ._3dface--back {
     width: 100px;
     height: 100px;
     transform: rotateY(180deg) translate3d(0, 0, 50px);
+    -moz-transform: rotateY(180deg) translate3d(0, 0, 50px);
+    -webkit-transform: rotateY(180deg) translate3d(0, 0, 50px);
+    -ms-transform: rotateY(180deg) translate3d(0, 0, 50px);
+    -o-transform: rotateY(180deg) translate3d(0, 0, 50px);
   }
 
   ._3dface--front {
