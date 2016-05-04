@@ -3,3 +3,4 @@ node_modules
 dev/build/css/*.css
 dev/build/bundle.js
 dev/build/*.html
+public

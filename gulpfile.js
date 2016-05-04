@@ -1,68 +1,55 @@
 'use strict';
-
 let gulp = require('gulp');
-// let lint = require('gulp-eslint');
-// let mocha = require('gulp-mocha');
 let webpack = require('gulp-webpack');
+let rename = require('gulp-rename');
 let del = require('del');
 let sass = require('gulp-sass');
 
-let paths = ['*.js', 'models/*.js', 'routes/*.js', 'tests/*.js', 'dev/**/*.html', 'dev/**/*.js', 'dev/components/**/*.js'];
+let jsPaths   = ['*.js', 'models/*.js', 'routes/*.js', 'tests/**/*.js', 'dev/**/*.js'];
+let htmlPaths = ['dev/**/*.html'];
+let scssPaths = ['dev/style/*.scss'];
+let output = __dirname + '/public/';
 
-gulp.task('del-build', () => {
-  return del([
-    __dirname + '/dev/build/**', __dirname + '!/dev/build', __dirname + '!/dev/build/css'
+gulp.task('del-public', () => {
+  return del.sync([
+    output + '*'
   ])
-  .then(paths => console.log('Deleted files and folders:\n', paths.join('\n')));
 });
 
-// Possible routing for index files === 'dev/components/**/*.html'
 gulp.task('copy-html', () => {
-  gulp.src([__dirname +
-    '/dev/index.html',
-    // './dev/components/footer/footer-view.html',
-    './dev/components/landing/signUp-view.html',
-    './dev/components/landing/register-view.html',
-    './dev/components/landing/landing-view.html',
-    './dev/components/landing/login-view.html',
-    './dev/components/header/header-view.html',
-    // './dev/components/home/home-view.html',
-    './dev/components/main/main-view.html',
-    './dev/components/nav/nav-view.html'
-    // './dev/components/user/user-view.html'
-])
-  .pipe(gulp.dest(__dirname + '/dev/build'));
+  gulp.src(htmlPaths)
+  .pipe(rename({dirname: ''}))
+  .pipe(gulp.dest(output));
 });
 
 gulp.task('webpack', () => {
   return gulp.src(__dirname + '/dev/entry.js')
   .pipe(webpack({
-    watch: true,
-    // module: {
-    //   loaders: [
-    //     { test: /\.css$/, loader: 'style!css'}
-    //   ]
-    // },
+    //watch: true,
     output: {
       filename: 'bundle.js'
     }
   }))
-  .pipe(gulp.dest(__dirname + '/dev/build/'));
+  .pipe(gulp.dest(output));
 });
 
 gulp.task('sass', function() {
-  return gulp.src(__dirname + '/dev/style/*.scss')
+  return gulp.src(scssPaths)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(__dirname + '/dev/build/css'));
+    .pipe(gulp.dest(output + 'css'));
 });
 
-// gulp.task('sass:watch', function() {
-//   gulp.watch(__dirname + '/dev/style/*.scss', ['sass']);
-// });
-
+// TODO: change watchers to delete pre-existing css/js/html from public
 gulp.task('watch', () =>{
-  gulp.watch(paths);
+  gulp.watch(scssPaths, ['sass']);
+  gulp.watch(jsPaths, ['webpack']);;
+  gulp.watch(htmlPaths, ['copy-html']);;
 });
+
+gulp.task('default', ['del-public', 'webpack', 'copy-html', 'sass', 'watch']);
+
+
+
 
 // gulp.task('bundle:test', () => {
 //   return gulp.src(__dirname + '/tests/karma-testing.js')
@@ -80,4 +67,3 @@ gulp.task('watch', () =>{
 
 // The gulp 'default' with all tasks, excluding some during development process
 // gulp.task('default', ['eslint', 'del-build', 'webpack', 'bundle:test', 'copy-html', 'sass']);
-gulp.task('default', ['del-build', 'webpack', 'copy-html', 'sass', 'watch']);
