@@ -1,5 +1,6 @@
 body {
-  background-image: url('http://scratchdoctorkc.com/wp-content/uploads/2015/02/silver-gradient-background.jpg');
+  // background-image: url('http://scratchdoctorkc.com/wp-content/uploads/2015/02/silver-gradient-background.jpg');
+	background-image: url('/dev/img/silver-gradient-background.jpg');
 	background-size: 100%;
 	// background-repeat: no-repeat;
 }
@@ -39,84 +40,11 @@ BODY STYLING
 	outline: none;
 }
 
-body {
-	// background: url('http://www.demo.amitjakhu.com/login-form/images/bg.png');
-  background-color: white;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight:300;
-	text-align: left;
-	text-decoration: none;
-	height: 500px;
-}
-
 #wrapper {
 	/* Center wrapper perfectly */
 	width: 300px;
 	height: 400px;
 	margin: 70px auto;
-}
-
-/* Download Button (Demo Only) */
-.download {
-	display: block;
-	position: absolute;
-	float: right;
-	right: 25px;
-	bottom: 25px;
-	padding: 5px;
-
-	font-weight: bold;
-	font-size: 11px;
-	text-align: right;
-	text-decoration: none;
-	color: rgba(0,0,0,0.5);
-	text-shadow: 1px 1px 0 rgba(256,256,256,0.5);
-}
-
-.download:hover {
-	color: rgba(0,0,0,0.75);
-	text-shadow: 1px 1px 0 rgba(256,256,256,0.5);
-}
-
-.download:focus {
-	bottom: 24px;
-}
-
-/*
-.gradient {
-	width: 600px;
-	height: 600px;
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	margin-left: -300px;
-	margin-top: -300px;
-
-	background: url(http://www.demo.amitjakhu.com/login-form/images/gradient.png) no-repeat;
-}
-*/
-
-.gradient {
-	/* Center Positioning */
-	width: 600px;
-	height: 600px;
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	margin-left: -300px;
-	margin-top: -300px;
-	z-index: -2;
-
-	/* Fallback */
-	background-image: url(http://www.demo.amitjakhu.com/login-form/images/gradient.png);
-	background-repeat: no-repeat;
-
-	/* CSS3 Gradient */
-	background-image: -webkit-gradient(radial, 0% 0%, 0% 100%, from(rgba(213,246,255,1)), to(rgba(213,246,255,0)));
-	background-image: -webkit-radial-gradient(50% 50%, 40% 40%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -moz-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -ms-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
-	background-image: -o-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
 }
 
 /*******************
@@ -268,13 +196,13 @@ FOOTER
 	float:right;
 	padding: 11px 25px;
 
-	font-family: 'Bree Serif', serif;
+	font-family: 'lora', serif;
 	font-weight: 300;
 	font-size: 18px;
 	color: #fff;
 	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
 
-	background: #644DFF;
+	background: $secondary;
 	border: 1px solid #46b3d3;
 	border-radius: 5px;
 	cursor: pointer;
@@ -297,7 +225,7 @@ FOOTER
 	position: relative;
 	bottom: -1px;
 
-	background: #644DFF;
+	background: $secondary;
 
 	box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
 	-moz-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
@@ -329,4 +257,24 @@ FOOTER
 .login-form .footer .register:focus {
 	position: relative;
 	bottom: -1px;
+}
+
+.register {
+	float:right;
+	padding: 11px 25px;
+
+	font-family: 'lora', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+
+	background-color: $secondary;
+	border: 1px solid #46b3d3;
+	border-radius: 5px;
+	cursor: pointer;
+
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 }
