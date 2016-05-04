@@ -21,6 +21,11 @@
   $rs-sm-cube-height:       100px;
   $rs-sm-cube-half-width:   50px;
 
+    //colors
+  $primary-color: ;
+  $secondary-color: ;
+  $tertiary-color: ;
+
 
   /////////////////////
   // mixins
@@ -48,6 +53,15 @@
     transform: rotateX(-15deg) rotateY(15deg);
   }
 
+/// fix this mixin,
+  @mixin radio-transform($degrees) {
+    transform: rotateX(degrees); //write deg after number
+    -moz-transform: rotateX(degrees);
+    -webkit-transform: rotateX(degrees);
+    -ms-transform: rotateX(degrees);
+    -o-transform: rotateX(degrees);
+  }
+
 /////////////////////
 // STYLES
 /////////////////////
@@ -61,10 +75,19 @@ body {
   font-family: Arial;
 }
 
-.container {
+.story-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cube-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .cube-holder {
@@ -202,22 +225,27 @@ body {
 
 #radio-left:checked ~ .space3d ._3dbox {
   transform: rotateY(90deg);
+  // @include radio-transform(90deg);
 }
 
 #radio-right:checked ~ .space3d ._3dbox {
   transform: rotateY(-90deg);
+  // @include radio-transform(-90deg);
 }
 
 #radio-bottom:checked ~ .space3d ._3dbox {
   transform: rotateX(90deg);
+  // @include radio-transform(90deg);
 }
 
 #radio-top:checked ~ .space3d ._3dbox {
   transform: rotateX(-90deg);
+  // @include radio-transform(-90deg);
 }
 
 #radio-back:checked ~ .space3d ._3dbox {
   transform: rotateY(180deg);
+  // @include radio-transform(180deg);
 }
 
 ._3dface--front {
@@ -226,17 +254,17 @@ body {
 }
 
 ._3dface--left {
-  background: url(http://i.telegraph.co.uk/multimedia/archive/01842/landscape-rainbow_1842437i.jpg);
+  // background: url(http://i.telegraph.co.uk/multimedia/archive/01842/landscape-rainbow_1842437i.jpg);
   background-size: auto 100%;
 }
 
 ._3dface--right {
-  background: url(http://2.bp.blogspot.com/-yrnBD8wJ-g0/UNRtPF8pR7I/AAAAAAAAATE/YSpLvqTNyoQ/s320/A+P+J+abdul+kalam_+swm+.jpg);
+  // background: url(http://2.bp.blogspot.com/-yrnBD8wJ-g0/UNRtPF8pR7I/AAAAAAAAATE/YSpLvqTNyoQ/s320/A+P+J+abdul+kalam_+swm+.jpg);
   background-size: auto 100%;
 }
 
 ._3dface--top {
-  background: url(http://3.bp.blogspot.com/-mySu8dy4ux4/ULiVKS4YBbI/AAAAAAAAAR0/vBMi_4dAPDE/s400/rajiv+dixit+s.jpg);
+  // background: url(http://3.bp.blogspot.com/-mySu8dy4ux4/ULiVKS4YBbI/AAAAAAAAAR0/vBMi_4dAPDE/s400/rajiv+dixit+s.jpg);
   background-size: auto 100%;
 }
 
@@ -286,6 +314,7 @@ body {
     color: #333;
     line-height: 100px;
     word-wrap: normal;
+    white-space: pre-line;
   }
 
   ._3dface--front {
@@ -295,7 +324,6 @@ body {
     white-space: pre-line;
     display: flex;
     flex-wrap: nowrap;
-    border: 1px dotted blue;
   }
 
   ._3dface--top {
@@ -332,43 +360,23 @@ body {
     transform: rotateY(180deg) translate3d(0, 0, 50px);
   }
 
-  #radio-left:checked ~ .space3d ._3dbox {
-    transform: rotateY(90deg);
-  }
-
-  #radio-right:checked ~ .space3d ._3dbox {
-    transform: rotateY(-90deg);
-  }
-
-  #radio-bottom:checked ~ .space3d ._3dbox {
-    transform: rotateX(90deg);
-  }
-
-  #radio-top:checked ~ .space3d ._3dbox {
-    transform: rotateX(-90deg);
-  }
-
-  #radio-back:checked ~ .space3d ._3dbox {
-    transform: rotateY(180deg);
-  }
-
   ._3dface--front {
     background-size: 100%;
-    overflow: initial;
+    overflow: hidden;
   }
 
   ._3dface--left {
-    background: url(http://i.telegraph.co.uk/multimedia/archive/01842/landscape-rainbow_1842437i.jpg);
+    // background: url(http://i.telegraph.co.uk/multimedia/archive/01842/landscape-rainbow_1842437i.jpg);
     background-size: auto 100%;
   }
 
   ._3dface--right {
-    background: url(http://2.bp.blogspot.com/-yrnBD8wJ-g0/UNRtPF8pR7I/AAAAAAAAATE/YSpLvqTNyoQ/s320/A+P+J+abdul+kalam_+swm+.jpg);
+    // background: url(http://2.bp.blogspot.com/-yrnBD8wJ-g0/UNRtPF8pR7I/AAAAAAAAATE/YSpLvqTNyoQ/s320/A+P+J+abdul+kalam_+swm+.jpg);
     background-size: auto 100%;
   }
 
   ._3dface--top {
-    background: url(http://3.bp.blogspot.com/-mySu8dy4ux4/ULiVKS4YBbI/AAAAAAAAAR0/vBMi_4dAPDE/s400/rajiv+dixit+s.jpg);
+    // background: url(http://3.bp.blogspot.com/-mySu8dy4ux4/ULiVKS4YBbI/AAAAAAAAAR0/vBMi_4dAPDE/s400/rajiv+dixit+s.jpg);
     background-size: auto 100%;
   }
 }
