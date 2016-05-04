@@ -7,11 +7,11 @@ let webpack = require('gulp-webpack');
 let del = require('del');
 let sass = require('gulp-sass');
 
-let paths = ['*.js', 'models/*.js', 'routes/*.js', 'tests/*.js', 'dev/**/*.html', 'dev/**/*.js'];
+let paths = ['*.js', 'models/*.js', 'routes/*.js', 'tests/*.js', 'dev/**/*.html', 'dev/**/*.js', 'dev/components/**/*.js'];
 
 gulp.task('del-build', () => {
   return del([
-    __dirname + '/dev/build/**', __dirname + '!/dev/build'
+    __dirname + '/dev/build/**', __dirname + '!/dev/build', __dirname + '!/dev/build/css'
   ])
   .then(paths => console.log('Deleted files and folders:\n', paths.join('\n')));
 });
@@ -80,4 +80,4 @@ gulp.task('watch', () =>{
 
 // The gulp 'default' with all tasks, excluding some during development process
 // gulp.task('default', ['eslint', 'del-build', 'webpack', 'bundle:test', 'copy-html', 'sass']);
-gulp.task('default', ['del-build', 'webpack', 'copy-html', 'sass']);
+gulp.task('default', ['del-build', 'webpack', 'copy-html', 'sass', 'watch']);

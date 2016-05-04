@@ -1,11 +1,12 @@
 'use strict';
 
-angular.module('LandingModule', [])
+const app = angular.module('LandingModule', [])
 
+require(__dirname + '/../../services/auth_service')(app);
 // ADD IN ERROR AND AUTH SERVICES ?? TO FUNCTION AS WELL
 
-  .controller('LandingController',['$log', '$http', '$location',
-  function($log, $http, $location) {
+  app.controller('LandingController',['$log', '$http', '$location', 'AuthService',
+  function($log, $http, $location, AuthService) {
     console.log('LANDING CONTROLLER HAS BEEN USED');
 
     const vm = this;
@@ -19,10 +20,11 @@ angular.module('LandingModule', [])
     // }
     //
     vm.signUp = function(user) {
-      // AuthService.createUser(user, function(err, res) {
-      //   if (err) return ErrorService('Problem Creating User');
+      console.log('USER SIGNUP HAS BEEN HIT WITH : ', user);
+      AuthService.createUser(user, function(err, res) {
+        // if (err) return ErrorService('Problem Creating User');
         $location.path('/index');
-      // })
+      })
     }
     //
     // vm.signOut = function() {
@@ -33,6 +35,7 @@ angular.module('LandingModule', [])
 
     vm.continueTo = function() {
       $log.log('ContinueTo HAS BEEN HIT');
+      console.log('CONTINUE TO HAS BEEN HIT');
       $location.url('/index')
     }
 
