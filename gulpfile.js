@@ -1,13 +1,17 @@
 'use strict';
 
 let gulp = require('gulp');
-// let lint = require('gulp-eslint');
-// let mocha = require('gulp-mocha');
 let webpack = require('gulp-webpack');
+let rename = require('gulp-rename');
 let del = require('del');
 let sass = require('gulp-sass');
 
+// let lint = require('gulp-eslint');
+
+
 let paths = ['*.js', 'models/*.js', 'routes/*.js', 'tests/*.js', 'dev/**/*.html', 'dev/**/*.js'];
+let jsPaths   = ['*.js', 'models/*.js', 'routes/*.js', 'tests/**/*.js', 'dev/**/*.js'];
+let htmlPaths = ['dev/**/*.html'];
 
 gulp.task('del-build', () => {
   return del([
@@ -18,20 +22,9 @@ gulp.task('del-build', () => {
 
 // Possible routing for index files === 'dev/components/**/*.html'
 gulp.task('copy-html', () => {
-  gulp.src([__dirname +
-    '/dev/index.html',
-    // './dev/components/footer/footer-view.html',
-    './dev/components/landing/signUp-view.html',
-    './dev/components/landing/register-view.html',
-    './dev/components/landing/landing-view.html',
-    './dev/components/landing/login-view.html',
-    './dev/components/header/header-view.html',
-    // './dev/components/home/home-view.html',
-    './dev/components/main/main-view.html',
-    './dev/components/nav/nav-view.html'
-    // './dev/components/user/user-view.html'
-])
-  .pipe(gulp.dest(__dirname + '/dev/build'));
+  gulp.src(htmlPaths)
+  .pipe(rename({dirname: ''}))
+  .pipe(gulp.dest(__dirname + '/public'));
 });
 
 gulp.task('webpack', () => {
