@@ -31,6 +31,22 @@ $tertiary-darker: 	#89B21B;
 	margin-left: 2%;
 }
 
+@mixin nav-buttons-small {
+	background-color: $tertiary-darker;
+	border: none;
+	color: black;
+	padding: 8px 25px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	box-shadow: 2px 2px 1px $primary-darker;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
 @mixin nav-buttons-hover {
 	background-color: $tertiary-darker;
 	border: none;
@@ -99,7 +115,7 @@ header {
 			// padding-bottom: 1%;
 			margin: 0;
 			header: 0;
-			@media (max-width:400px) {
+			@media (max-width:450px) {
 				display: none;
 			}
 		}
@@ -114,13 +130,16 @@ header {
 	justify-content: space-around;
 
 	@media (max-width:369px) {
-		flex-direction: column;
+		flex-direction: row;
 		flex-wrap: wrap;
 	}
 }
 
 .button-1 {
 	@include nav-buttons;
+	@media (max-width: 715px) {
+		@include nav-buttons-small
+	}
 }
 
 .button-1:hover {
@@ -129,6 +148,9 @@ header {
 
 .button-2 {
 	@include nav-buttons;
+	@media (max-width: 715px) {
+		@include nav-buttons-small
+	}
 }
 
 .button-2:hover {
@@ -137,6 +159,9 @@ header {
 
 .button-3 {
 	@include nav-buttons;
+	@media (max-width: 715px) {
+		@include nav-buttons-small
+	}
 }
 
 .button-3:hover {

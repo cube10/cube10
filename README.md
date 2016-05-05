@@ -1,6 +1,6 @@
 # Cube List
 
-Cube10 is an innovative platform that aggregates trending articles and presents them in a user-friendly fashion. It is powered by AngularJS and uses MongoDB on the backend. Here is how it works:
+Cube List is an innovative platform that aggregates trending articles and presents them in a user-friendly fashion. It is powered by AngularJS and uses MongoDB on the backend. Here is how it works:
 
 - API calls are made to various social media sources, gathering details for trending topics
 - Trending topic data is cached in a Mongo database, to facilitate consistent client-side rendering.
