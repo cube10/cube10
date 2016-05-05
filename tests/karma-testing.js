@@ -19,9 +19,10 @@ describe('Should test everything', function() {
   beforeEach(angular.mock.module('App'))
   var $controller;
   beforeEach(angular.mock.inject(function(_$httpBackend_, AuthService, _$controller_) {
-    $controller = _$controller_
-    $httpBackend = _$httpBackend_
-    auth = AuthService;
+    $controller     = _$controller_
+    $httpBackend    = _$httpBackend_
+    auth            = AuthService;
+    // route           = $route;
 
   }))
 
@@ -58,6 +59,18 @@ describe('Should test everything', function() {
     $httpBackend.flush();
   })
 
+// TESTING THE MAIN CONTROLLER
+  it('should recognize the Main Controller', function() {
+    var $scope = {};
+    var controller = $controller('MainController', { $scope: $scope});
+
+    expect(typeof controller).toBe('object')
+    expect(typeof controller.getStories).toBe('function')
+    expect(typeof controller.space3dSides).toBe('object')
+    expect(typeof controller.s3dboxSides).toBe('object')
+    expect(controller.stories.length).toBe(0);
+  })
+
 // TESTING MAIN CONTROLLER GET STORIES FUNCTION
   it('should get all the stories', function() {
     var $scope = {};
@@ -72,95 +85,34 @@ describe('Should test everything', function() {
     expect(controller.stories.length).toBe(1);
   })
 
+// TESTING THE CHANING FACE FUNCTION
+  it('log that the "currentFace" count has increased', function() {
+    var $scope = {};
+    var controller = $controller('MainController', { $scope: $scope});
+
+    controller.nextFace()
+    expect(controller.currentFace).toBe(1);
+  })
+
+
 })
 
-
-  // it('Should delete and set the user toke to null on sign out', function() {
-  // auth.signOut(function(err, res) {
-  //   console.log('SIGN OUT FUNCTION : ', res);
-  // })
-  // })
-
-// describe('LandingController', function() {
-//   beforeEach(module('App'));
-//
-//   var $controller;
-//
-//   beforeEach(inject(function(_$controller_) {
-//     $controller = _$controller_;
-//
-//   describe('LandingController.add', function() {
-//     it('should get the sum of the numbers in the add test funciton', function() {
-//       var controller = $controller('LandingController', { $scope: $scope });
-//       $scope.add(5, 5
-//         console.log('CONTROLLER IS : ', controller);
-//       expect($scope.num).toEqual(10);
-//
-//     })
-//   })
-// });
-//
-//
-// }));
-
-  // beforeEach(angular.mock.module('PeopleApp'))
-  // beforeEach(angular.mock.inject(function($controller) {
-  //   peopleController = $controller('PeopleController');
-  // }))
-//   it('Should construct and controller', () => {
-//     expect(typeof peopleController).toBe('object');
-//     expect(peopleController.people[0]).toBe('person');
-//     expect(typeof peopleController.getPeople).toBe('function');
-//   });
-//   describe('REST tests', () => {
-//     var $httpBackend;
-//     beforeEach(angular.mock.inject(function(_$httpBackend_){
-//       $httpBackend = _$httpBackend_;
-//     }));
-//     afterEach(() => {
-//       $httpBackend.verifyNoOutstandingExpectation();
-//       $httpBackend.verifyNoOutstandingRequest();
-//     });
-//
-//     it('Should get all people', () => {
-//       $httpBackend.expectGET('http://localhost:3000/api/people')
-//       .respond(200, [{name: 'Johnsoville'}]);
-//       peopleController.getPeople();
-//       $httpBackend.flush();
-//       expect(peopleController.people.length).toBeGreaterThan(0);
-//       expect(peopleController.people[0].name).toBe('Johnsoville');
-//     });
-//
-//     it('Should create a new person', () => {
-//       $httpBackend.expectPOST('http://localhost:3000/api/people', {name: 'post person'})
-//
-//       .respond(200, {name: 'post person', age: 27, _id:'uniqueid'});
-//       peopleController.createPerson({name: 'post person'})
-//       $httpBackend.flush()
-//       expect(peopleController.people.length).toBe(2);
-//       expect(peopleController.people[1].name).toBe('post person')
-//     });
-//
-//     it('Should delete a person', () => {
-//       $httpBackend.expectDELETE('http://localhost:3000/api/people/19')
-//       .respond(200, 'deleted');
-//       peopleController.people.push({name: 'sam', _id: 19});
-//
-//       peopleController.removePerson(19);
-//       $httpBackend.flush();
-//       expect(peopleController.people.length).toBe(1);
-//       expect(peopleController.people.every((p) => p._id != 19)).toBe(true);
-//     });
-//
-//     it('Should update a person', () => {
-//       var updatePerson = {name: 'johnny wat', _id: 15};
-//       $httpBackend.expectPUT('http://localhost:3000/api/people/15')
-//       .respond(200, 'updated');
-//       peopleController.people.push(updatePerson);
-//       peopleController.updatePerson(updatePerson);
-//       $httpBackend.flush();
-//       expect(peopleController.editing).toBe(false);
-//     });
-//
-//
-//   });
+// TESTING ROUTE PROVIDER
+describe('Testing the route provider and template/controller loader', function() {
+  beforeEach(angular.mock.module('App'))
+  var route;
+  beforeEach(angular.mock.inject(function($route) {
+    route = $route;
+  }))
+  it('Should map routes to controllers for the "/" route', function() {
+    expect(route.routes['/'].controller).toBe('LandingController')
+    expect(route.routes['/'].templateUrl).toEqual('./landing-view.html')
+  })
+  it('Should map routes to controllers for the "/signUp" route', function() {
+    expect(route.routes['/signUp'].controller).toBe('LandingController')
+    expect(route.routes['/signUp'].templateUrl).toEqual('./signUp-view.html')
+  })
+  it('Should map routes to controllers for the "/index" route', function() {
+    expect(route.routes['/index'].templateUrl).toEqual('./main-view.html')
+  })
+})

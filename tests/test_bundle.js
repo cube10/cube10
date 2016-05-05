@@ -65,9 +65,10 @@
 	  beforeEach(angular.mock.module('App'))
 	  var $controller;
 	  beforeEach(angular.mock.inject(function(_$httpBackend_, AuthService, _$controller_) {
-	    $controller = _$controller_
-	    $httpBackend = _$httpBackend_
-	    auth = AuthService;
+	    $controller     = _$controller_
+	    $httpBackend    = _$httpBackend_
+	    auth            = AuthService;
+	    // route           = $route;
 
 	  }))
 
@@ -104,6 +105,18 @@
 	    $httpBackend.flush();
 	  })
 
+	// TESTING THE MAIN CONTROLLER
+	  it('should recognize the Main Controller', function() {
+	    var $scope = {};
+	    var controller = $controller('MainController', { $scope: $scope});
+
+	    expect(typeof controller).toBe('object')
+	    expect(typeof controller.getStories).toBe('function')
+	    expect(typeof controller.space3dSides).toBe('object')
+	    expect(typeof controller.s3dboxSides).toBe('object')
+	    expect(controller.stories.length).toBe(0);
+	  })
+
 	// TESTING MAIN CONTROLLER GET STORIES FUNCTION
 	  it('should get all the stories', function() {
 	    var $scope = {};
@@ -118,8 +131,45 @@
 	    expect(controller.stories.length).toBe(1);
 	  })
 
+	// TESTING THE CHANING FACE FUNCTION
+	  it('log that the "currentFace" count has increased', function() {
+	    var $scope = {};
+	    var controller = $controller('MainController', { $scope: $scope});
+
+	    controller.nextFace()
+	    expect(controller.currentFace).toBe(1);
+	  })
+
+
 	})
 
+	// TESTING ROUTE PROVIDER
+	describe('Testing the route provider and template/controller loader', function() {
+	  beforeEach(angular.mock.module('App'))
+	  var route;
+	  beforeEach(angular.mock.inject(function($route) {
+	    route = $route;
+	  }))
+	  it('Should map routes to controllers for the "/" route', function() {
+	    expect(route.routes['/'].controller).toBe('LandingController')
+	    expect(route.routes['/'].templateUrl).toEqual('./landing-view.html')
+	  })
+	  it('Should map routes to controllers for the "/signUp" route', function() {
+	    expect(route.routes['/signUp'].controller).toBe('LandingController')
+	    expect(route.routes['/signUp'].templateUrl).toEqual('./signUp-view.html')
+	  })
+	  it('Should map routes to controllers for the "/index" route', function() {
+	    expect(route.routes['/index'].templateUrl).toEqual('./main-view.html')
+	  })
+	})
+
+
+
+	// .when('/', {
+	//   templateUrl: './landing-view.html',
+	//   controller: 'LandingController',
+	//   controllerAs: 'landingCtrl'
+	// })
 
 	  // it('Should delete and set the user toke to null on sign out', function() {
 	  // auth.signOut(function(err, res) {
