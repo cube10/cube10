@@ -23,6 +23,18 @@
       // this.s3dboxSides = ['_3dbox', 'red', 'blue',  '_3dbox-l', '_3dbox-r', '_3dbox-ba'];
       this.spaceCubeStyle = this.space3dSides[this.currentFace];
       this.boxCubeStyle = this.s3dboxSides[this.currentFace];
+      // this.toggleImage = true;
+      // this.toggleArticle = true;
+
+      this.expandArticle = function(story) {
+        // this.toggleArticle ? this.toggleArticle = false : this.toggleArticle = true;
+        story.toggleArticle = !story.toggleArticle
+      }
+
+      this.expandImage = function(story) {
+        // this.toggleImage ? this.toggleImage = false : this.toggleImage = true;
+        story.toggleImage = !story.toggleImage
+      }
 
       this.nextFace = function() {
         if (this.currentFace >= 6) this.currentFace = 0;

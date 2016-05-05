@@ -200,6 +200,45 @@ body {
 //   transform: rotateY(180deg);
 // }
 
+.expanded-article {
+  display: none;
+}
+
+.expanded-article-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin-left: 20%;
+  border: 2px solid $secondary;
+  border-radius: 20px;
+  padding: 4% 2%;
+
+}
+
+.expanded-image {
+  display: none;
+}
+
+.expanded-image-active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 90%;
+  margin-left: 5%;
+}
+
+// .image-container {
+//   border: 2px solid $secondary;
+//   border-radius: 20px;
+//   object-fit: contain;
+// }
+
+.image {
+  border: 3px solid $primary-darker;
+  border-radius: 5px;
+}
+
   ///////////////////////
   // cube faces
   ///////////////////////
