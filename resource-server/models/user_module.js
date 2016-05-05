@@ -15,7 +15,7 @@ let userSchema = mongoose.Schema({
 
 userSchema.pre('save', function(next) {
   this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10))
-  // console.log('hash password NEWWWW : ', this.password);
+  console.log('hash password NEWWWW : ', this.password);
   next()
 })
 

@@ -8,6 +8,7 @@ var authRouter = module.exports = exports = express.Router();
 
 authRouter.post('/signup', jsonParser, (req, res) => {
   var newUser = new User();
+  console.log('SIGN UP HAS BEEN HIT WITH : ', req.body.username);
   // if (!((req.body.email || '').length && (req.body.password || '').length > 7)) {
   //   return res.status(400).json({msg: 'invalid username or password'});
   // }
@@ -15,6 +16,7 @@ authRouter.post('/signup', jsonParser, (req, res) => {
   newUser.email = req.body.email;
   newUser.password = req.body.password;
   newUser.save((err, data) => {
+    console.log('ERROR WHILE SAVING USER ', err);
 
     var token = data.generateToken();
 
