@@ -1,11 +1,11 @@
 <section ng-init="mainctrl.getStories()" ng-controller="MainController as mainctrl" class="cube-container">
   <section class="cube-holder" ng-repeat="story in mainctrl.stories" >
     <input type="radio" class="radio-button" checked id="radio-front" name="select-face"/>
-    <input type="radio" class="radio-button" id="radio-left" name="select-face"/>
     <input type="radio" class="radio-button" id="radio-right" name="select-face"/>
-    <input type="radio" class="radio-button" id="radio-top" name="select-face"/>
-    <input type="radio" class="radio-button" id="radio-bottom" name="select-face"/>
-    <input type="radio" class="radio-button" id="radio-back" name="select-face"/>
+    <input type="radio" class="radio-button" id="radio-left" name="select-face"/>
+    <!-- <input type="radio" class="radio-button" id="radio-top" name="select-face"/> -->
+    <!-- <input type="radio" class="radio-button" id="radio-bottom" name="select-face"/> -->
+    <!-- <input type="radio" class="radio-button" id="radio-back" name="select-face"/> -->
 
     <div class="separator"></div>
 
@@ -22,7 +22,7 @@
       </div>
 
     </div>
-    
+
     <section ng-class="{'expanded-article-active' : story.toggleArticle, 'expanded-article' : !story.toggleArticle}" ng-click="mainctrl.expandArticle(story)">
       <h3>{{story.title}}</h3>
       <p>

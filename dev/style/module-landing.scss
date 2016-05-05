@@ -1,7 +1,8 @@
 body {
-  // background-image: url('http://scratchdoctorkc.com/wp-content/uploads/2015/02/silver-gradient-background.jpg');
-	background-image: url('/dev/img/silver-gradient-background.jpg');
-	background-size: 100%;
+	background-image: url('/media/silver-gradient-background.jpg');
+	background-repeat: no-repeat;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 
@@ -14,19 +15,6 @@ $primary-darker: 		#0546B2;
 $secondary: 				#FF654D;
 $tertiary: 					#9ACC15;
 $tertiary-darker: 	#89B21B;
-
-/*******************
-SELECTION STYLING
-*******************/
-
-::selection {
-	color: #fff;
-	background: #f676b2; /* Safari */
-}
-::-moz-selection {
-	color: #fff;
-	background: #f676b2; /* Firefox */
-}
 
 /*******************
 BODY STYLING
@@ -76,7 +64,7 @@ HEADER
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
 	font-size: 28px;
-	line-height:34px;
+	line-height:24px;
 	color: #414848;
 	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
 	margin-bottom: 10px;
