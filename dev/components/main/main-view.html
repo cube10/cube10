@@ -22,7 +22,8 @@
       </div>
 
     </div>
-      <section ng-class="{'expanded-article-active' : story.toggleArticle, 'expanded-article' : !story.toggleArticle}" ng-click="mainctrl.expandArticle(story)">
+    
+    <section ng-class="{'expanded-article-active' : story.toggleArticle, 'expanded-article' : !story.toggleArticle}" ng-click="mainctrl.expandArticle(story)">
       <h3>{{story.title}}</h3>
       <p>
         {{story.description}}
@@ -33,7 +34,6 @@
         <img class="image" src="{{story.imgUrl}}" alt="" />
       </div>
     </section>
-    <!-- <div class="separator"></div> -->
     <br><br>
   </section>
 </section>
