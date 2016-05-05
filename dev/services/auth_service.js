@@ -4,16 +4,12 @@ module.exports = function(app) {
     var url = 'http://localhost:3000';
     var auth = {
       createUser(user, cb) {
-        console.log('AUTH SERVICE HAS BEEN HIT WITH : ', user);
         cb || function() {};
         $http.post(url + '/signup', user)
           .then((res) => {
-            console.log(res);
-            console.log('AUTH SERVICE : TOKEN GIVEN BACK TO AUTH SERVICE : ');
             token = $window.localStorage.token = res.data.token;
             cb(null, res)
           }, (err) => {
-            console.log('AUTHER SERVICE ERROR', err);
             cb(err)
           })
       },
@@ -38,7 +34,6 @@ module.exports = function(app) {
       }, (err) => {
         cb(err);
       })
-      // debugger If I send it Aaron's way it get preflight header error, if i send it my way its doesn't see the object
     }
   }
     return auth;

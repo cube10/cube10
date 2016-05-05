@@ -51,7 +51,7 @@ gulp.task('bundle:test', () => {
   .pipe(webpack({output: {filename: 'test_bundle.js'},
   watch: true
 }))
-  .pipe(gulp.dest('./test'));
+  .pipe(gulp.dest('./tests'));
 });
 
 gulp.task('default', ['del-public', 'webpack', 'copy-html', 'sass', 'watch']);
