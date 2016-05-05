@@ -4,7 +4,6 @@ let DB =  require('./.config').DB || process.env.DB
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
 mongoose.connect(DB)
-//mongoose.connect('mongodb://localhost/db')
 
 let express = require('express')
 let publicRouter = express.Router()
