@@ -22,7 +22,6 @@ describe('Should test everything', function() {
     $controller     = _$controller_
     $httpBackend    = _$httpBackend_
     auth            = AuthService;
-    // route           = $route;
 
   }))
 
@@ -93,8 +92,6 @@ describe('Should test everything', function() {
     controller.nextFace()
     expect(controller.currentFace).toBe(1);
   })
-
-
 })
 
 // TESTING ROUTE PROVIDER
