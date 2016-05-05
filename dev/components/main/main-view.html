@@ -13,7 +13,7 @@
 
 
       <div ng-class="mainctrl.boxCubeStyle" class="_3dbox" >
-        <div class="_3dface _3dface--front" ><img ng-click="mainctrl.expandImage(story)" class="story-image" src="{{story.imgUrl}}" alt="" /></div>
+        <div class="_3dface _3dface--front" ><img ng-click="mainctrl.expandImage(story)" class="story-image" ng-src="{{story.imgUrl}}" alt="" /></div>
         <div class="_3dface _3dface--top" ng-click="mainctrl.expandArticle(story)"></br></br>{{story.title}}</div>
         <div class="_3dface _3dface--bottom" ng-click="mainctrl.expandArticle(story)">{{story.description}}</div>
         <div class="_3dface _3dface--left"></div>
