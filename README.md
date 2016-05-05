@@ -52,10 +52,13 @@ MIT
 This is what some people have to say about our service:
 
 > The cubes are awesome!
-Pablo Picasso
+
+ Pablo Picasso
 
 > I should have built this instead
-Mark Zuckerberg
+
+ Mark Zuckerberg
 
 > I'll be hiring this team tomorrow
-Zombie Steve Jobs
+
+ Zombie Steve Jobs
