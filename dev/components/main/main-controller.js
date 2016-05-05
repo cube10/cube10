@@ -1,4 +1,7 @@
-// function() {
+  /////////////////////////////////////////
+  // defines module and custom directive
+  /////////////////////////////////////////
+
   angular.module('MainModule', [])
     .controller('MainController', ['$http', '$scope', MainController])
     .directive('cubeRender', function() {
@@ -9,43 +12,24 @@
     });
 
   /////////////////////////////
-  // defines controllers
+  // defines controller
   ////////////////////////////
 
     function MainController ($http, $scope) {
-      const storyRoute = 'http://localhost:3000/stories';
-      this.stories = [];
-      this.currentFace = 0;
-      this.space3dSides = ['space3d', 'space3d-t', 'space3d-bo', 'space3d-l', 'space3d-r', 'space3d-ba'];
-      this.s3dboxSides = ['_3dbox', '_3dbox-t', '_3dbox-bo',  '_3dbox-l', '_3dbox-r', '_3dbox-ba'];
+      const storyRoute    = 'http://localhost:3000/stories';
+      this.stories        = [];
 
-      // this.space3dSides = ['space3d', 'red', 'blue', 'space3d-l', 'space3d-r', 'space3d-ba'];
-      // this.s3dboxSides = ['_3dbox', 'red', 'blue',  '_3dbox-l', '_3dbox-r', '_3dbox-ba'];
-      this.spaceCubeStyle = this.space3dSides[this.currentFace];
-      this.boxCubeStyle = this.s3dboxSides[this.currentFace];
-      // this.toggleImage = true;
-      // this.toggleArticle = true;
-
+      //expanded article render
       this.expandArticle = function(story) {
-        // this.toggleArticle ? this.toggleArticle = false : this.toggleArticle = true;
         story.toggleArticle = !story.toggleArticle
       }
 
+      //expanded image render
       this.expandImage = function(story) {
-        // this.toggleImage ? this.toggleImage = false : this.toggleImage = true;
         story.toggleImage = !story.toggleImage
       }
 
-      this.nextFace = function() {
-        if (this.currentFace >= 6) this.currentFace = 0;
-        this.currentFace++;
-        this.spaceCubeStyle = this.space3dSides[this.currentFace];
-        this.boxCubeStyle = this.s3dboxSides[this.currentFace];
-        // $scope.$apply();
-        console.log('face changed');
-      }
-
-
+      //makes API call to get story instances
       this.getStories = function() {
         $http.get(storyRoute)
           .then((result) => {
@@ -55,8 +39,4 @@
             console.log('error blah');
           });
       };
-      this.rotateCube = function() {
-
-      }
     }
-// }
