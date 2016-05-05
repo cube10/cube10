@@ -128,7 +128,10 @@ body {
   margin-top: 20px;
 }
 
-/* 3D Cube */
+  ///////////////////////
+  // 3D Cubes
+  ///////////////////////
+
 .space3d {
   @include cube-dimensions($cube-width, $cube-height);
   @include space3d-default;
@@ -139,66 +142,14 @@ body {
   }
 }
 
-// .space3d-t {
-//   @include cube-dimensions($cube-width, $cube-height);
-//   @include space3d-default;
-//   transform: rotateX(-90deg);
-// }
-//
-// .space3d-bo {
-//   @include cube-dimensions($cube-width, $cube-height);
-//   @include space3d-default;
-//   transform: rotateX(90deg);
-// }
-//
-// .space3d-l {
-//   @include cube-dimensions($cube-width, $cube-height);
-//   @include space3d-default;
-//   transform: rotateY(90deg);
-// }
-//
-// .space3d-r {
-//   @include cube-dimensions($cube-width, $cube-height);
-//   @include space3d-default;
-//   transform: rotateY(-90deg);
-// }
-//
-// .space3d-ba {
-//   @include cube-dimensions($cube-width, $cube-height);
-//   @include space3d-default;
-//   transform: rotateY(180deg);
-// }
-
-
 ._3dbox {
   @include _3dbox-default;
 
 }
 
-// ._3dbox-t {
-//   @include _3dbox-default;
-//   transform: rotateX(-90deg);
-// }
-//
-// ._3dbox-bo {
-//   @include _3dbox-default;
-//   transform: rotateX(90deg);
-// }
-//
-// ._3dbox-l {
-//   @include _3dbox-default;
-//   transform: rotateY(90deg);
-// }
-//
-// ._3dbox-r {
-//   @include _3dbox-default;
-//   transform: rotateY(-90deg);
-// }
-//
-// ._3dbox-ba {
-//   @include _3dbox-default;
-//   transform: rotateY(180deg);
-// }
+  ///////////////////////
+  // expanded views
+  ///////////////////////
 
 .expanded-article {
   display: none;
@@ -227,12 +178,6 @@ body {
   max-width: 90%;
   margin-left: 5%;
 }
-
-// .image-container {
-//   border: 2px solid $secondary;
-//   border-radius: 20px;
-//   object-fit: contain;
-// }
 
 .image {
   border: 3px solid $primary-darker;
@@ -339,13 +284,16 @@ body {
   -o-transform: rotateY(180deg) translate3d(0, 0, $cube-half-width);
 }
 
+  ///////////////////////
+  // radio buttons
+  ///////////////////////
+
 #radio-left:checked ~ .space3d ._3dbox {
   transform: rotateY(90deg);
   -moz-transform: rotateX(90deg);
   -webkit-transform: rotateX(90deg);
   -ms-transform: rotateX(90deg);
   -o-transform: rotateX(90deg);
-  // @include radio-transform(90deg);
 }
 
 #radio-right:checked ~ .space3d ._3dbox {
@@ -386,22 +334,18 @@ body {
 
 ._3dface--front {
   background-size: 100%;
-  /*overflow: initial;*/
 }
 
 ._3dface--left {
-  // background: url(http://i.telegraph.co.uk/multimedia/archive/01842/landscape-rainbow_1842437i.jpg);
   background-size: auto 100%;
   background-color: $primary-darker;
 }
 
 ._3dface--right {
-  // background: url(http://2.bp.blogspot.com/-yrnBD8wJ-g0/UNRtPF8pR7I/AAAAAAAAATE/YSpLvqTNyoQ/s320/A+P+J+abdul+kalam_+swm+.jpg);
   background-size: auto 100%;
 }
 
 ._3dface--top {
-  // background: url(http://3.bp.blogspot.com/-mySu8dy4ux4/ULiVKS4YBbI/AAAAAAAAAR0/vBMi_4dAPDE/s400/rajiv+dixit+s.jpg);
   background-size: auto 100%;
 }
 
@@ -410,7 +354,6 @@ body {
   .container {
     display: flex;
     flex-direction: column;
-    /*flex-wrap: wrap;*/
   }
 
   .cube-holder {
@@ -439,18 +382,6 @@ body {
     -ms-transform: rotateX(-15deg) rotateY(15deg);
     -o-transform: rotateX(-15deg) rotateY(15deg);
   }
-
-  // ._3dface {
-  //   overflow: hidden;
-  //   position: absolute;
-  //   border: 1px solid #888;
-  //   background: #FFF;
-  //   box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
-  //   color: #333;
-  //   line-height: 100px;
-  //   word-wrap: normal;
-  //   white-space: pre-line;
-  // }
 
   ._3dface--front {
     width: 100px;
@@ -535,7 +466,6 @@ body {
   }
 
   ._3dface--top {
-    // background: url(http://3.bp.blogspot.com/-mySu8dy4ux4/ULiVKS4YBbI/AAAAAAAAAR0/vBMi_4dAPDE/s400/rajiv+dixit+s.jpg);
     background-size: auto 100%;
   }
 }
