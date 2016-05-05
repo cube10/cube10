@@ -4,7 +4,6 @@ let bcrypt = require('bcrypt')
 let jwt = require('jsonwebtoken')
 
 let userSchema = mongoose.Schema({
-  // username: {type : String, unique : true, required : true},
   username: {type : String, unique : true, required : true, dropDups: true},
   name: String,
   email: String,
@@ -34,8 +33,8 @@ let User = mongoose.model('User', userSchema)
 module.exports = User
 
 // test users
-// let newUser = new User({username: 'test1', name: 'test1', password: 'test1'})
-// newUser.save()
-//
-// let newUser2 = new User({username: 'test2', name: 'test2', password: 'test2'})
-// newUser2.save()
+let newUser = new User({username: 'test1', name: 'test1', password: 'test1'})
+newUser.save()
+
+let newUser2 = new User({username: 'test2', name: 'test2', password: 'test2'})
+newUser2.save()
