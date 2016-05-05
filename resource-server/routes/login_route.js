@@ -1,5 +1,5 @@
 'use strict'
-let User = require('../models/user_module')
+let User = require(__dirname + '/../models/user_module')
 let bodyParser = require('body-parser')
 
 module.exports = (router) => {
@@ -18,9 +18,13 @@ module.exports = (router) => {
 
         let username = authArray[0]
         let password = authArray[1]
+        console.log('LOGIN ROUTE : ', username);
 
         User.findOne({username: username}, (err, user) => {
-          if (!user) {return res.json({status: 'failure'})}
+          if (!user) {
+            console.log('USER WASN"T FOUND');
+            return res.json({status: 'failure'})
+          }
 
           let valid = user.compareHash(password, user.password)
           if (!valid) {

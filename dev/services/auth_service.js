@@ -5,6 +5,7 @@ module.exports = function(app) {
     var auth = {
       createUser(user, cb) {
         cb || function() {};
+        console.log('USER COMING IN : ', user);
         $http.post(url + '/signup', user)
           .then((res) => {
             token = $window.localStorage.token = res.data.token;
@@ -23,13 +24,15 @@ module.exports = function(app) {
       cb && cb();
     },
     signIn(user, cb) {
+      console.log('AUTH SERVICE : SIGN IN HIT WITH : ', user);
       cb = cb || function() {};
       $http.get(url + '/signin', {
         headers: {
-          authorization: 'Basic ' + btoa(user.email + ':' + user.password)
+          authorization: 'Basic ' + btoa(user.username + ':' + user.password)
         }})
       .then((res) => {
         token = $window.localStorage.token = res.data.token;
+        console.log('AUTH SERVICE : TOKEN GEN : ', token);
         cb(null, res);
       }, (err) => {
         cb(err);

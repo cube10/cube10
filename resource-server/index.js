@@ -3,16 +3,19 @@ let S_PORT = Number(process.env.S_PORT) || require('./.config').S_PORT || 3000
 let DB =  require('./.config').DB || process.env.DB
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
-mongoose.connect(DB)
+// mongoose.connect(DB)
+mongoose.connect('mongodb://localhost/db')
 
 let express = require('express')
 let publicRouter = express.Router()
 let app = express()
-require(__dirname + '/routes/login_route')(publicRouter)
+// require(__dirname + '/routes/login_route')(publicRouter)
 require(__dirname + '/routes/story_route')(publicRouter)
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
+  // res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
+
   res.header('Access-Control-Allow-Credentials', 'true')
 
   //Added authorization to and toke to the end of this.
