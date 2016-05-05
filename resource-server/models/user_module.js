@@ -25,6 +25,7 @@ userSchema.methods.generateToken = function() {
 }
 
 userSchema.methods.compareHash = function(pass, hash) {
+  console.log('COMPARY HASH PASS WORD HIT WITH : PASSWORD ', pass + ' HASH : ',  hash);
   return bcrypt.compareSync(pass, hash)
 }
 
