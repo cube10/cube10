@@ -102,8 +102,8 @@ describe('Testing the route provider and template/controller loader', function()
     route = $route;
   }))
   it('Should map routes to controllers for the "/" route', function() {
-    expect(route.routes['/'].controller).toBe('LandingController')
-    expect(route.routes['/'].templateUrl).toEqual('./landing-view.html')
+    expect(route.routes['/login'].controller).toBe('LandingController')
+    expect(route.routes['/login'].templateUrl).toEqual('./landing-view.html')
   })
   it('Should map routes to controllers for the "/signUp" route', function() {
     expect(route.routes['/signUp'].controller).toBe('LandingController')

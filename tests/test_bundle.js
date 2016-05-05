@@ -68,7 +68,6 @@
 	    $controller     = _$controller_
 	    $httpBackend    = _$httpBackend_
 	    auth            = AuthService;
-	    // route           = $route;
 
 	  }))
 
@@ -139,8 +138,6 @@
 	    controller.nextFace()
 	    expect(controller.currentFace).toBe(1);
 	  })
-
-
 	})
 
 	// TESTING ROUTE PROVIDER
@@ -151,8 +148,8 @@
 	    route = $route;
 	  }))
 	  it('Should map routes to controllers for the "/" route', function() {
-	    expect(route.routes['/'].controller).toBe('LandingController')
-	    expect(route.routes['/'].templateUrl).toEqual('./landing-view.html')
+	    expect(route.routes['/login'].controller).toBe('LandingController')
+	    expect(route.routes['/login'].templateUrl).toEqual('./landing-view.html')
 	  })
 	  it('Should map routes to controllers for the "/signUp" route', function() {
 	    expect(route.routes['/signUp'].controller).toBe('LandingController')
@@ -162,104 +159,6 @@
 	    expect(route.routes['/index'].templateUrl).toEqual('./main-view.html')
 	  })
 	})
-
-
-
-	// .when('/', {
-	//   templateUrl: './landing-view.html',
-	//   controller: 'LandingController',
-	//   controllerAs: 'landingCtrl'
-	// })
-
-	  // it('Should delete and set the user toke to null on sign out', function() {
-	  // auth.signOut(function(err, res) {
-	  //   console.log('SIGN OUT FUNCTION : ', res);
-	  // })
-	  // })
-
-	// describe('LandingController', function() {
-	//   beforeEach(module('App'));
-	//
-	//   var $controller;
-	//
-	//   beforeEach(inject(function(_$controller_) {
-	//     $controller = _$controller_;
-	//
-	//   describe('LandingController.add', function() {
-	//     it('should get the sum of the numbers in the add test funciton', function() {
-	//       var controller = $controller('LandingController', { $scope: $scope });
-	//       $scope.add(5, 5
-	//         console.log('CONTROLLER IS : ', controller);
-	//       expect($scope.num).toEqual(10);
-	//
-	//     })
-	//   })
-	// });
-	//
-	//
-	// }));
-
-	  // beforeEach(angular.mock.module('PeopleApp'))
-	  // beforeEach(angular.mock.inject(function($controller) {
-	  //   peopleController = $controller('PeopleController');
-	  // }))
-	//   it('Should construct and controller', () => {
-	//     expect(typeof peopleController).toBe('object');
-	//     expect(peopleController.people[0]).toBe('person');
-	//     expect(typeof peopleController.getPeople).toBe('function');
-	//   });
-	//   describe('REST tests', () => {
-	//     var $httpBackend;
-	//     beforeEach(angular.mock.inject(function(_$httpBackend_){
-	//       $httpBackend = _$httpBackend_;
-	//     }));
-	//     afterEach(() => {
-	//       $httpBackend.verifyNoOutstandingExpectation();
-	//       $httpBackend.verifyNoOutstandingRequest();
-	//     });
-	//
-	//     it('Should get all people', () => {
-	//       $httpBackend.expectGET('http://localhost:3000/api/people')
-	//       .respond(200, [{name: 'Johnsoville'}]);
-	//       peopleController.getPeople();
-	//       $httpBackend.flush();
-	//       expect(peopleController.people.length).toBeGreaterThan(0);
-	//       expect(peopleController.people[0].name).toBe('Johnsoville');
-	//     });
-	//
-	//     it('Should create a new person', () => {
-	//       $httpBackend.expectPOST('http://localhost:3000/api/people', {name: 'post person'})
-	//
-	//       .respond(200, {name: 'post person', age: 27, _id:'uniqueid'});
-	//       peopleController.createPerson({name: 'post person'})
-	//       $httpBackend.flush()
-	//       expect(peopleController.people.length).toBe(2);
-	//       expect(peopleController.people[1].name).toBe('post person')
-	//     });
-	//
-	//     it('Should delete a person', () => {
-	//       $httpBackend.expectDELETE('http://localhost:3000/api/people/19')
-	//       .respond(200, 'deleted');
-	//       peopleController.people.push({name: 'sam', _id: 19});
-	//
-	//       peopleController.removePerson(19);
-	//       $httpBackend.flush();
-	//       expect(peopleController.people.length).toBe(1);
-	//       expect(peopleController.people.every((p) => p._id != 19)).toBe(true);
-	//     });
-	//
-	//     it('Should update a person', () => {
-	//       var updatePerson = {name: 'johnny wat', _id: 15};
-	//       $httpBackend.expectPUT('http://localhost:3000/api/people/15')
-	//       .respond(200, 'updated');
-	//       peopleController.people.push(updatePerson);
-	//       peopleController.updatePerson(updatePerson);
-	//       $httpBackend.flush();
-	//       expect(peopleController.editing).toBe(false);
-	//     });
-	//
-	//
-	//   });
 
 
 /***/ },
@@ -31196,18 +31095,16 @@
 	    const vm = this;
 	    // vm.error = ErrorService();
 
-	    // vm.signIn = function(user) {
-	    //   AuthService.signIn(user, (err, res) => {
-	    //     if (err) return ErrorService('Problem signing in')
-	    //     $location.path('/home');
-	    //   })
-	    // }
-	    //
-
-	    // vm.num = 0;
-	    // vm.add = function(a, b) {
-	    //   vm.num = a + b;
-	    // };
+	    vm.signIn = function(user) {
+	      AuthService.signIn(user, (err, res) => {
+	        // if (err) return ErrorService('Problem signing in')
+	        if (err) {
+	          throw err;
+	          $location.path('/login')
+	        }
+	        $location.path('/index');
+	      })
+	    }
 
 	    vm.signUp = function(user) {
 	      AuthService.createUser(user, function(err, res) {
@@ -31254,6 +31151,7 @@
 	    var auth = {
 	      createUser(user, cb) {
 	        cb || function() {};
+	        console.log('USER COMING IN : ', user);
 	        $http.post(url + '/signup', user)
 	          .then((res) => {
 	            token = $window.localStorage.token = res.data.token;
@@ -31272,13 +31170,15 @@
 	      cb && cb();
 	    },
 	    signIn(user, cb) {
+	      console.log('AUTH SERVICE : SIGN IN HIT WITH : ', user);
 	      cb = cb || function() {};
 	      $http.get(url + '/signin', {
 	        headers: {
-	          authorization: 'Basic ' + btoa(user.email + ':' + user.password)
+	          authorization: 'Basic ' + btoa(user.username + ':' + user.password)
 	        }})
 	      .then((res) => {
 	        token = $window.localStorage.token = res.data.token;
+	        console.log('AUTH SERVICE : TOKEN GEN : ', token);
 	        cb(null, res);
 	      }, (err) => {
 	        cb(err);
@@ -31297,7 +31197,7 @@
 	angular.module('RouteModule', [__webpack_require__(8)])
 	  .config(['$routeProvider', function(route) {
 	    route
-	      .when('/', {
+	      .when('/login', {
 	        templateUrl: './landing-view.html',
 	        controller: 'LandingController',
 	        controllerAs: 'landingCtrl'
@@ -32398,6 +32298,18 @@
 	      // this.s3dboxSides = ['_3dbox', 'red', 'blue',  '_3dbox-l', '_3dbox-r', '_3dbox-ba'];
 	      this.spaceCubeStyle = this.space3dSides[this.currentFace];
 	      this.boxCubeStyle = this.s3dboxSides[this.currentFace];
+	      // this.toggleImage = true;
+	      // this.toggleArticle = true;
+
+	      this.expandArticle = function(story) {
+	        // this.toggleArticle ? this.toggleArticle = false : this.toggleArticle = true;
+	        story.toggleArticle = !story.toggleArticle
+	      }
+
+	      this.expandImage = function(story) {
+	        // this.toggleImage ? this.toggleImage = false : this.toggleImage = true;
+	        story.toggleImage = !story.toggleImage
+	      }
 
 	      this.nextFace = function() {
 	        if (this.currentFace >= 6) this.currentFace = 0;
