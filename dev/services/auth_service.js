@@ -5,6 +5,7 @@ module.exports = function(app) {
     var auth = {
       createUser(user, cb) {
         cb || function() {};
+        console.log('USER COMING IN : ', user);
         $http.post(url + '/signup', user)
           .then((res) => {
             token = $window.localStorage.token = res.data.token;
