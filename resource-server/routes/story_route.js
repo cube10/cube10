@@ -1,12 +1,7 @@
 'use strict'
-let authenticate = require('../lib/authenticate')
-
-// TODO: move authenticate and projectLookup to .all() to cleanup routes
 module.exports = (router) => {
   router.route('/stories')
-    //.get(authenticate)
     .get((req, res, next) => {
-      // console.log('/projects hit with get request')
       next()
     })
     .get((req, res) => {
