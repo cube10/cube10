@@ -11,18 +11,16 @@ require(__dirname + '/../../services/auth_service')(app);
     const vm = this;
     // vm.error = ErrorService();
 
-    // vm.signIn = function(user) {
-    //   AuthService.signIn(user, (err, res) => {
-    //     if (err) return ErrorService('Problem signing in')
-    //     $location.path('/home');
-    //   })
-    // }
-    //
-
-    // vm.num = 0;
-    // vm.add = function(a, b) {
-    //   vm.num = a + b;
-    // };
+    vm.signIn = function(user) {
+      AuthService.signIn(user, (err, res) => {
+        // if (err) return ErrorService('Problem signing in')
+        if (err) {
+          throw err;
+          $location.path('/login')
+        }
+        $location.path('/index');
+      })
+    }
 
     vm.signUp = function(user) {
       AuthService.createUser(user, function(err, res) {

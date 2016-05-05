@@ -4,3 +4,5 @@ dev/build/css/*.css
 dev/build/bundle.js
 dev/build/*.html
 public
+test
+tests/test_bundle.js
