@@ -164,7 +164,7 @@ body {
   border: 2px solid $secondary;
   border-radius: 5px;
   padding: 4% 2%;
-
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
 .expanded-image {
@@ -177,6 +177,7 @@ body {
   justify-content: center;
   max-width: 90%;
   margin-left: 5%;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
 .image {
@@ -302,35 +303,7 @@ body {
   -webkit-transform: rotateX(-90deg);
   -ms-transform: rotateX(-90deg);
   -o-transform: rotateX(-90deg);
-  // @include radio-transform(-90deg);
 }
-
-// #radio-bottom:checked ~ .space3d ._3dbox {
-//   transform: rotateX(90deg);
-//   -moz-transform: rotateX(90deg);
-//   -webkit-transform: rotateX(90deg);
-//   -ms-transform: rotateX(90deg);
-//   -o-transform: rotateX(90deg);
-//   // @include radio-transform(90deg);
-// }
-//
-// #radio-top:checked ~ .space3d ._3dbox {
-//   transform: rotateX(-90deg);
-//   -moz-transform: rotateX(-90deg);
-//   -webkit-transform: rotateX(-90deg);
-//   -ms-transform: rotateX(-90deg);
-//   -o-transform: rotateX(-90deg);
-//   // @include radio-transform(-90deg);
-// }
-//
-// #radio-back:checked ~ .space3d ._3dbox {
-//   transform: rotateY(180deg);
-//   -moz-transform: rotateX(180deg);
-//   -webkit-transform: rotateX(180deg);
-//   -ms-transform: rotateX(180deg);
-//   -o-transform: rotateX(180deg);
-//   // @include radio-transform(180deg);
-// }
 
 ._3dface--front {
   background-size: 100%;
@@ -456,12 +429,10 @@ body {
   }
 
   ._3dface--left {
-    // background: url(http://i.telegraph.co.uk/multimedia/archive/01842/landscape-rainbow_1842437i.jpg);
     background-size: auto 100%;
   }
 
   ._3dface--right {
-    // background: url(http://2.bp.blogspot.com/-yrnBD8wJ-g0/UNRtPF8pR7I/AAAAAAAAATE/YSpLvqTNyoQ/s320/A+P+J+abdul+kalam_+swm+.jpg);
     background-size: auto 100%;
   }
 

@@ -17,9 +17,9 @@ $tertiary-darker: 	#89B21B;
 //////////////////////////
 
 @mixin nav-buttons {
-	background-color: $tertiary-darker;
+	background-color: $secondary;
 	border: none;
-	color: black;
+	color: #FFFFF0;
 	padding: 12px 29px;
 	margin-top: 8px;
 	margin-bottom: 8px;
@@ -32,9 +32,9 @@ $tertiary-darker: 	#89B21B;
 }
 
 @mixin nav-buttons-small {
-	background-color: $tertiary-darker;
+	background-color: $secondary;
 	border: none;
-	color: black;
+	color: #FFFFF0;
 	padding: 8px 25px;
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -48,9 +48,9 @@ $tertiary-darker: 	#89B21B;
 }
 
 @mixin nav-buttons-hover {
-	background-color: $tertiary-darker;
+	background-color: $secondary;
 	border: none;
-	color: black;
+	color: #FFFFF0;
 	padding: 14px 31px;
 	margin-top: 8px;
 	margin-bottom: 8px;
@@ -107,11 +107,13 @@ header {
 			margin: 0;
 			padding-bottom: 1%;
 			padding-top: 1%;
+			color: #FFFFF0;
 		}
 
 		.headerTitleSub {
 			font-size: 16px;
 			font-family: Lora, serif;
+			color: #FFFFF0;
 			// padding-bottom: 1%;
 			margin: 0;
 			header: 0;
