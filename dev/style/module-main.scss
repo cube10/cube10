@@ -162,7 +162,7 @@ body {
   width: 60%;
   margin-left: 20%;
   border: 2px solid $secondary;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 4% 2%;
 
 }
@@ -247,7 +247,7 @@ body {
   -ms-transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
   -o-transform: rotateX(-90deg) translate3d(0, 0, $cube-half-width);
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   @media (max-width: 500px) {
     font-size: 11px;
   }
@@ -305,32 +305,32 @@ body {
   // @include radio-transform(-90deg);
 }
 
-#radio-bottom:checked ~ .space3d ._3dbox {
-  transform: rotateX(90deg);
-  -moz-transform: rotateX(90deg);
-  -webkit-transform: rotateX(90deg);
-  -ms-transform: rotateX(90deg);
-  -o-transform: rotateX(90deg);
-  // @include radio-transform(90deg);
-}
-
-#radio-top:checked ~ .space3d ._3dbox {
-  transform: rotateX(-90deg);
-  -moz-transform: rotateX(-90deg);
-  -webkit-transform: rotateX(-90deg);
-  -ms-transform: rotateX(-90deg);
-  -o-transform: rotateX(-90deg);
-  // @include radio-transform(-90deg);
-}
-
-#radio-back:checked ~ .space3d ._3dbox {
-  transform: rotateY(180deg);
-  -moz-transform: rotateX(180deg);
-  -webkit-transform: rotateX(180deg);
-  -ms-transform: rotateX(180deg);
-  -o-transform: rotateX(180deg);
-  // @include radio-transform(180deg);
-}
+// #radio-bottom:checked ~ .space3d ._3dbox {
+//   transform: rotateX(90deg);
+//   -moz-transform: rotateX(90deg);
+//   -webkit-transform: rotateX(90deg);
+//   -ms-transform: rotateX(90deg);
+//   -o-transform: rotateX(90deg);
+//   // @include radio-transform(90deg);
+// }
+//
+// #radio-top:checked ~ .space3d ._3dbox {
+//   transform: rotateX(-90deg);
+//   -moz-transform: rotateX(-90deg);
+//   -webkit-transform: rotateX(-90deg);
+//   -ms-transform: rotateX(-90deg);
+//   -o-transform: rotateX(-90deg);
+//   // @include radio-transform(-90deg);
+// }
+//
+// #radio-back:checked ~ .space3d ._3dbox {
+//   transform: rotateY(180deg);
+//   -moz-transform: rotateX(180deg);
+//   -webkit-transform: rotateX(180deg);
+//   -ms-transform: rotateX(180deg);
+//   -o-transform: rotateX(180deg);
+//   // @include radio-transform(180deg);
+// }
 
 ._3dface--front {
   background-size: 100%;

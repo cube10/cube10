@@ -1,6 +1,6 @@
-# Cube List
+# Story Blocks
 
-Cube List is an innovative platform that aggregates trending articles and presents them in a user-friendly fashion. It is powered by AngularJS and uses MongoDB on the backend. Here is how it works:
+Story Blocks is an innovative platform that aggregates trending articles and presents them in a user-friendly fashion. It is powered by AngularJS and uses MongoDB on the backend. Here is how it works:
 
 - API calls are made to various social media sources, gathering details for trending topics
 - Trending topic data is cached in a Mongo database, to facilitate consistent client-side rendering.
@@ -13,7 +13,7 @@ Cube List is an innovative platform that aggregates trending articles and presen
 
 ## Tech Details
 
-Cube List uses the following open-source technologies to work properly:
+Story Blocks uses the following open-source technologies to work properly:
 
 * [AngularJS] - HTML enhanced for web apps
 * [Angular-Route] - Client-side routing
@@ -26,7 +26,7 @@ Cube List uses the following open-source technologies to work properly:
 * [body-parser] - great UI boilerplate for modern web apps
 * [jsonwebtoken] - Hashing
 
-Cube List also uses the following open-source technologies for streamlined development:
+Story Blocks also uses the following open-source technologies for streamlined development:
 
 * [angular-mocks] - angular testing helper
 * [del] - clears folders before deploying client-side build
