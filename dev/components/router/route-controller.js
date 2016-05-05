@@ -1,7 +1,7 @@
 angular.module('RouteModule', [require('angular-route')])
   .config(['$routeProvider', function(route) {
     route
-      .when('/', {
+      .when('/login', {
         templateUrl: './landing-view.html',
         controller: 'LandingController',
         controllerAs: 'landingCtrl'

@@ -22,7 +22,7 @@
 	<form name="login-form" class="login-form" ng-submit="landingCtrl.signIn(user)">
 
 		<div class="header">
-		<h1>Login Form</h1>
+    <h1 id="loginHeader">Login Form</h1>
 		<span>Already a user? sign in below</span>
 		</div>
 
@@ -34,9 +34,9 @@
 		</div>
 
 		<div class="footer">
-		<input type="submit" name="submit" value="Login" class="button" />
-		<input name="submit" value="Register" class="register" ng-click="landingCtrl.signUpPage()" />
-    <input name="submit" value="Continue" class="register" ng-click="landingCtrl.continueTo()" />
+		<input id="submitButton" type="submit" name="submit" value="Login" class="button" />
+		<input type="submit" value="Register" class="register" ng-click="landingCtrl.signUpPage()" />
+    <input type="submit" value="Continue" class="register" ng-click="landingCtrl.continueTo()" />
 		</div>
 
 	</form>
