@@ -29,12 +29,9 @@ gulp.task('copy-media', () => {
     .pipe(gulp.dest(output));
 });
 
-
-
 gulp.task('webpack', () => {
   return gulp.src(__dirname + '/dev/entry.js')
   .pipe(webpack({
-    //watch: true,
     output: {
       filename: 'bundle.js'
     }

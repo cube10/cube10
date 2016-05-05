@@ -6,8 +6,3 @@ angular.module('NavModule', [])
       templateUrl: './nav-view.html'
     };
   });
-    
-  /////////////////////////
-  // defines controllers //
-  /////////////////////////
-
