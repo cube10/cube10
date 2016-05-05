@@ -1,17 +1,14 @@
 'use strict';
 
-// require(__dirname + '/../public/js/index.js');
-
-// require(__dirname + '/../public/bundle')
 require(__dirname + '/../dev/entry')
 
-// const angular = require('angular');
 require('angular-mocks');
 
 describe('Should test everything', function() {
 
   var $httpBackend;
   var auth;
+  var main;
 
   describe('It should test something', () => {
     it('Should have a test', () => {
@@ -20,9 +17,12 @@ describe('Should test everything', function() {
   });
 
   beforeEach(angular.mock.module('App'))
-  beforeEach(angular.mock.inject(function(_$httpBackend_, AuthService) {
+  var $controller;
+  beforeEach(angular.mock.inject(function(_$httpBackend_, AuthService, _$controller_) {
+    $controller = _$controller_
     $httpBackend = _$httpBackend_
     auth = AuthService;
+
   }))
 
   it('should be a service', function() {
@@ -38,7 +38,6 @@ describe('Should test everything', function() {
 
     $httpBackend.expectPOST('http://localhost:3000/signup').respond(200, fakeToken);
     auth.createUser(user, function(err, res) {
-      console.log('RES DATA FROM KARMA : ', res.data);
       expect(err).toBe(null)
       expect(res.data.token).toBe('kjjd')
     })
@@ -53,14 +52,35 @@ describe('Should test everything', function() {
     }
     $httpBackend.expectGET('http://localhost:3000/signin').respond(200, fakeTokenTwo);
     auth.signIn(user, function(err, res) {
-      console.log('RESPONSE FROM SIGN IN TEST : ', res.data);
       expect(err).toBe(null)
       expect(res.data.token).toBe('iii');
     })
     $httpBackend.flush();
   })
 
+// TESTING MAIN CONTROLLER GET STORIES FUNCTION
+  it('should get all the stories', function() {
+    var $scope = {};
+    var controller = $controller('MainController', { $scope: $scope});
+
+    $httpBackend.expectGET('http://localhost:3000/stories').respond(200, [
+      {title: 'Test Story', description: 'Story for Karma'}
+    ]);
+
+    controller.getStories()
+    $httpBackend.flush();
+    expect(controller.stories.length).toBe(1);
+  })
+
 })
+
+
+  // it('Should delete and set the user toke to null on sign out', function() {
+  // auth.signOut(function(err, res) {
+  //   console.log('SIGN OUT FUNCTION : ', res);
+  // })
+  // })
+
 // describe('LandingController', function() {
 //   beforeEach(module('App'));
 //

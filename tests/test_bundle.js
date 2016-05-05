@@ -46,18 +46,15 @@
 
 	'use strict';
 
-	// require(__dirname + '/../public/js/index.js');
-
-	// require(__dirname + '/../public/bundle')
 	__webpack_require__(1)
 
-	// const angular = require('angular');
 	__webpack_require__(13);
 
 	describe('Should test everything', function() {
 
 	  var $httpBackend;
 	  var auth;
+	  var main;
 
 	  describe('It should test something', () => {
 	    it('Should have a test', () => {
@@ -66,16 +63,19 @@
 	  });
 
 	  beforeEach(angular.mock.module('App'))
-	  beforeEach(angular.mock.inject(function(_$httpBackend_, AuthService) {
+	  var $controller;
+	  beforeEach(angular.mock.inject(function(_$httpBackend_, AuthService, _$controller_) {
+	    $controller = _$controller_
 	    $httpBackend = _$httpBackend_
 	    auth = AuthService;
+
 	  }))
 
 	  it('should be a service', function() {
 	    expect(typeof auth).toBe('object');
 	  })
 
-	// TESTING AUTH SERVICE
+	// TESTING AUTH SERVICE SIGN UP
 	  it('Should save a user token from the server to local storage', function() {
 	    var user = {name: 'Sam', password: 'lucy', email: 'email@gmail.com'}
 	    var fakeToken = {
@@ -84,13 +84,13 @@
 
 	    $httpBackend.expectPOST('http://localhost:3000/signup').respond(200, fakeToken);
 	    auth.createUser(user, function(err, res) {
-	      console.log('RES DATA FROM KARMA : ', res.data);
 	      expect(err).toBe(null)
 	      expect(res.data.token).toBe('kjjd')
 	    })
 	    $httpBackend.flush();
 	  })
 
+	// TESTING AUTH SERVICE SIGN IN
 	  it('Should get back a token after signing in', function() {
 	    var user = {name: 'Sam', password: 'lucy', email: 'email@gmail.com'}
 	    var fakeTokenTwo = {
@@ -98,14 +98,35 @@
 	    }
 	    $httpBackend.expectGET('http://localhost:3000/signin').respond(200, fakeTokenTwo);
 	    auth.signIn(user, function(err, res) {
-	      console.log('RESPONSE FROM SIGN IN TEST : ', res.data);
 	      expect(err).toBe(null)
 	      expect(res.data.token).toBe('iii');
 	    })
 	    $httpBackend.flush();
 	  })
 
+	// TESTING MAIN CONTROLLER GET STORIES FUNCTION
+	  it('should get all the stories', function() {
+	    var $scope = {};
+	    var controller = $controller('MainController', { $scope: $scope});
+
+	    $httpBackend.expectGET('http://localhost:3000/stories').respond(200, [
+	      {title: 'Test Story', description: 'Story for Karma'}
+	    ]);
+
+	    controller.getStories()
+	    $httpBackend.flush();
+	    expect(controller.stories.length).toBe(1);
+	  })
+
 	})
+
+
+	  // it('Should delete and set the user toke to null on sign out', function() {
+	  // auth.signOut(function(err, res) {
+	  //   console.log('SIGN OUT FUNCTION : ', res);
+	  // })
+	  // })
+
 	// describe('LandingController', function() {
 	//   beforeEach(module('App'));
 	//
@@ -31121,7 +31142,6 @@
 
 	  app.controller('LandingController',['$log', '$http', '$location', 'AuthService',
 	  function($log, $http, $location, AuthService) {
-	    console.log('LANDING CONTROLLER HAS BEEN USED');
 
 	    const vm = this;
 	    // vm.error = ErrorService();
@@ -31133,14 +31153,13 @@
 	    //   })
 	    // }
 	    //
-	    
+
 	    // vm.num = 0;
 	    // vm.add = function(a, b) {
 	    //   vm.num = a + b;
 	    // };
 
 	    vm.signUp = function(user) {
-	      console.log('USER SIGNUP HAS BEEN HIT WITH : ', user);
 	      AuthService.createUser(user, function(err, res) {
 	        // if (err) return ErrorService('Problem Creating User');
 	        $location.url('/index');
@@ -31155,7 +31174,6 @@
 
 	    vm.continueTo = function() {
 	      $log.log('ContinueTo HAS BEEN HIT');
-	      console.log('CONTINUE TO HAS BEEN HIT');
 	      $location.url('/index')
 	    }
 
@@ -31185,16 +31203,12 @@
 	    var url = 'http://localhost:3000';
 	    var auth = {
 	      createUser(user, cb) {
-	        console.log('AUTH SERVICE HAS BEEN HIT WITH : ', user);
 	        cb || function() {};
 	        $http.post(url + '/signup', user)
 	          .then((res) => {
-	            console.log(res);
-	            console.log('AUTH SERVICE : TOKEN GIVEN BACK TO AUTH SERVICE : ');
 	            token = $window.localStorage.token = res.data.token;
 	            cb(null, res)
 	          }, (err) => {
-	            console.log('AUTHER SERVICE ERROR', err);
 	            cb(err)
 	          })
 	      },
@@ -31219,7 +31233,6 @@
 	      }, (err) => {
 	        cb(err);
 	      })
-	      // debugger If I send it Aaron's way it get preflight header error, if i send it my way its doesn't see the object
 	    }
 	  }
 	    return auth;

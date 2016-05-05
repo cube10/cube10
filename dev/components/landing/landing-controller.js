@@ -7,7 +7,6 @@ require(__dirname + '/../../services/auth_service')(app);
 
   app.controller('LandingController',['$log', '$http', '$location', 'AuthService',
   function($log, $http, $location, AuthService) {
-    console.log('LANDING CONTROLLER HAS BEEN USED');
 
     const vm = this;
     // vm.error = ErrorService();
@@ -19,14 +18,13 @@ require(__dirname + '/../../services/auth_service')(app);
     //   })
     // }
     //
-    
+
     // vm.num = 0;
     // vm.add = function(a, b) {
     //   vm.num = a + b;
     // };
 
     vm.signUp = function(user) {
-      console.log('USER SIGNUP HAS BEEN HIT WITH : ', user);
       AuthService.createUser(user, function(err, res) {
         // if (err) return ErrorService('Problem Creating User');
         $location.url('/index');
@@ -41,7 +39,6 @@ require(__dirname + '/../../services/auth_service')(app);
 
     vm.continueTo = function() {
       $log.log('ContinueTo HAS BEEN HIT');
-      console.log('CONTINUE TO HAS BEEN HIT');
       $location.url('/index')
     }
 
