@@ -31,6 +31,7 @@ module.exports = function(app) {
           authorization: 'Basic ' + btoa(user.username + ':' + user.password)
         }})
       .then((res) => {
+        // cb = cb || function() {};
         token = $window.localStorage.token = res.data.token;
         console.log('AUTH SERVICE : TOKEN GEN : ', token);
         cb(null, res);

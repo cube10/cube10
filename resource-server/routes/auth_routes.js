@@ -36,6 +36,11 @@ authRouter.get('/signin', basicHTTP, (req, res) => {
 
     if (!user) return res.status(401).json({msg: 'no seyzzz the authenticat'});
 
+    var valid = user.compareHash(req.basicHTTP.password, user.password)
+    if (!valid) {
+      return res.status(401).json({msg: 'Auth failure'})
+    }
+
     // if (!user.comparePassword(req.basicHTTP.password)) return res.status(401).json({msg: 'authenticat seyzzz no!'});
     res.json({token: user.generateToken()});
 
