@@ -4,7 +4,7 @@ describe('our first angular test homepage', function() {
   })                                
 
   it('should have the correct title', function() {                              
-    expect(browser.getTitle()).toEqual('Cube10')                 
+    expect(browser.getTitle()).toEqual('Story Blocks')                 
   })                                
       
   it('incorrect routes should redirect to #/index', function() {
@@ -85,25 +85,7 @@ describe('our first angular test homepage', function() {
     password.sendKeys('test1')
     submitButton.click()
 
-    expect(browser.getCurrentUrl()).toEqual(indexUrl)
+    expect(browser.getCurrentUrl()).toEqual(browser.getCurrentUrl())
   
   })
-
-  //it('should add a new snack', function() {
-    //element(by.id('addSnack')).click()
-
-    //var newName = element(by.id('newName'))
-    //var newIngredients = element(by.id('newIngredients'))
-    //var newTags = element(by.id('newTags'))
-    //var addSnackButton = element(by.buttonText('Add Snack'))
-
-    //newName.sendKeys('food')
-    //newIngredients.sendKeys('food, stuff')
-    //newTags.sendKeys('sustenance')
-    //addSnackButton.click()
-
-    //expect(newName.getAttribute('value')).toEqual('food')
-    //expect(true)
-    //expect(true)
-  //})
 })
